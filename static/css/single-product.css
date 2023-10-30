@@ -1,0 +1,476 @@
+
+  #myVideo {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+  }
+
+
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    /* Position the image container (needed to position the left and right arrows) */
+    .ContaineR {
+      position: relative;
+      width: 40%;
+      float: right;
+    }
+
+    @media screen and (max-width: 650px) {
+
+    .ContaineR {
+
+      width: 98%;
+     margin: auto;
+    }
+
+
+
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+      cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* Container for image text */
+    .caption-container {
+      text-align: center;
+      background-color: #222;
+      padding: 2px 16px;
+      color: white;
+    }
+
+    .row  {
+      content: "";
+      display: table;
+      clear: both;
+
+    }
+
+    /* Six columns side by side */
+    .column {
+      float: left;
+      width: 16.66%;
+    }
+
+    /* Add a transparency effect for thumnbail images */
+    .demo {
+      opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+
+    .iamges {
+
+    width:80%;margin: auto;
+    }
+    .mySlides{}
+    @media screen and (max-width: 650px) {
+
+    .iamges {
+
+    width:90%;margin: auto;
+    }
+    .mySlides{
+    width:100%;
+
+    margin: auto;
+    }
+    .row{
+    width:90%;
+    margin: auto;
+
+    }    }
+/*  */
+
+    .qus{
+     width: 80%;
+    margin: auto;
+
+    }
+
+
+    .accordion {
+      background-color: #fff;
+      color: #444;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: right;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+     border: 1px solid #eee;
+     margin-top:12px;
+        border-radius: 8px;
+    }
+
+    .Active, .accordion:hover {
+      background-color: #ebe9e9;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+        text-align: right;
+    padding:15px ;
+    }
+
+/*  */
+
+
+    .inf{width:99%;margin: auto;}
+
+  @media screen and (max-width: 650px) {
+
+    .inf{
+      width:99%;
+      margin: auto;
+
+
+    }
+
+
+    .customers{
+      width:99%;
+      margin: auto;
+
+
+    }
+
+  .TR{
+      width:95%;
+      margin: auto;
+      text-align: right;
+
+
+    }
+  }
+
+/*  */
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-right: 0;
+}
+
+#customers td, #customers th {
+   padding: 8px;
+  text-align: right;
+
+    color: #6d6d6d;
+
+    border: none;
+    border-bottom: 1px solid #eee;
+     font-weight: inherit;
+
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #fff;
+  color: #6d6d6d;
+   text-align: right;
+
+
+}
+
+/*  */
+
+
+
+
+  .title{
+      text-align: right;
+      color: #000;
+      margin-top: 5px;
+      font-size: 20px;
+  /*    font-weight: 700;*/
+    font-weight: bold;
+  }
+
+  .Product-price {
+     font-weight: 700;
+     font-size: 16px;
+     color: #01b67a !important
+  }
+
+  .Crossed-price-WB {
+    font-weight: 700;
+    color: #ccc;
+    text-decoration: line-through !important;
+  }
+
+  .des{
+
+    background-color: #fff;
+    color: #6d6d6d;
+    text-align: right;
+
+
+
+  }
+
+  /*
+   */
+
+
+
+
+     .COntaine{
+         display: flex;
+         align-items: center;
+         padding:3px;
+         border: 1px solid #222;
+         text-align: center;
+         border-radius: 3px;
+         display: inline-block;
+     }
+
+     .quantity-control {
+       display: flex;
+       align-items: center;
+       border-radius: 15px;
+       overflow: hidden;
+     }
+
+     .quantity-btn {
+       padding: 8px 8px;
+       background-color: #fff;
+       color: #222;;
+       border: none;
+       cursor: pointer;
+       font-size: 23px;
+       font-weight: bold;
+     }
+
+
+     .quantity-input {
+         background: transparent;
+         border: none;
+         border-radius: 0;
+         color: #222;;
+         width: 40px;
+         padding: 0;
+         height: 35px;
+         font-size: 23px;
+         text-align: center;
+         font-weight: bold;
+
+     }
+
+
+     .new-form-atc {
+         width: 90%;
+         margin: auto;
+         cursor: pointer;
+         background-color: #01b67a !important;
+         color: #000000;
+         border-radius: 0px;
+         text-align: center;
+         font-size: 1.3em;
+         margin-top: 10px;
+         margin-bottom: 15px;
+         padding: 15px 0 15px 0;
+         font-weight: bold;
+
+     }
+     .WEB { display: block; width: 100%; }
+     /*.MOBIL { display: none; }*/
+       .Iframe{ display:  block; width: 100%;}
+
+       .iframevideo{   width:100%;height: 330px}
+     @media screen and (max-width: 650px) {
+
+     /*  .MOBIL { display: block; width: 100%; }*/
+       .WEB { display: none; }
+     /*  .Iframe{ display: none; }*/
+     }
+
+
+     /*  */
+
+
+
+       div.gallery img {
+         width: 100%;
+         height: auto;
+       }
+
+       div.desc {
+          text-align: center;
+       }
+
+       * {
+         box-sizing: border-box;
+       }
+
+       .responsive {
+         padding: 0 6px;
+         float: left;
+         width: 33%;
+       }
+
+       @media only screen and (max-width: 700px) {
+         .responsive {
+           width: 49.99999%;
+           margin: 6px 0;
+         }
+       }
+
+       @media only screen and (max-width: 500px) {
+         .responsive {
+           width: 100%;
+         }
+       }
+
+       .clearfix:after {
+         content: "";
+         display: table;
+         clear: both;
+
+
+           div.gallery img {
+             width: 100%;
+             height: auto;
+           }
+
+           div.desc {
+              text-align: center;
+           }
+
+           * {
+             box-sizing: border-box;
+           }
+
+           .responsive {
+             padding: 0 6px;
+             float: left;
+             width: 33%;
+           }
+
+           @media only screen and (max-width: 700px) {
+             .responsive {
+               width: 49.99999%;
+               margin: 6px 0;
+             }
+           }
+
+           @media only screen and (max-width: 500px) {
+             .responsive {
+               width: 100%;
+             }
+           }
+
+           .clearfix:after {
+             content: "";
+             display: table;
+             clear: both;
+           }
+/*  */
+             div.gallery img {
+               width: 100%;
+               height: auto;
+             }
+
+             div.desc {
+                text-align: center;
+             }
+
+             * {
+               box-sizing: border-box;
+             }
+
+             .responsive {
+               padding: 0 6px;
+               float: left;
+               width: 33%;
+             }
+
+             @media only screen and (max-width: 700px) {
+               .responsive {
+                 width: 49.99999%;
+                 margin: 6px 0;
+               }
+             }
+
+             @media only screen and (max-width: 500px) {
+               .responsive {
+                 width: 100%;
+               }
+             }
+
+             .clearfix:after {
+               content: "";
+               display: table;
+               clear: both;
+             } }
+
+
+             /*  */
+
+
+                 }

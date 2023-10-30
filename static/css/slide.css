@@ -1,0 +1,49 @@
+.slide{       width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+     align-content: flex-start;
+     margin: auto;
+     min-height: 30em;
+/*     padding: 3em 1em 1em 1em;*/
+     box-sizing: border-box;}
+.respon {
+  width: 100%;
+    margin: auto;
+  height: auto;
+       flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+     align-content: flex-start;
+
+
+  display: none;
+}
+
+  .respon_MOBIL {
+  width: 100%;
+    margin: auto;
+  height: auto;
+       flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+     align-content: flex-start;
+  display: block;
+
+}
+
+
+/* Media query for screens larger than 768px */
+@media (min-width: 768px) {
+  .respon_MOBIL {
+  display: none;
+}
+
+
+.respon {
+
+ display: block;
+}
+  }
+}
