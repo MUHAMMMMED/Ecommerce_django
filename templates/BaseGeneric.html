@@ -1,0 +1,329 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+   <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+   {% if info.FaviconIco %}
+   <link rel="icon" href="{{info.FaviconIco.url}}" type="image/x-icon">
+   <link rel="website icon" type="png" href="{{info.FaviconIco.url}}">
+   {% endif %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="{% static 'css/head.css' %} ">
+   <link rel="stylesheet" href="{% static 'css/float-button.css' %} ">
+   <link rel="stylesheet" href="{% static 'css/styleall.css' %} ">
+   <link rel="stylesheet" href="{% static 'css/slide.css' %} ">
+   <link rel="stylesheet" href="{% static 'css/card.css' %} ">
+   <link rel="stylesheet" href="{% static 'css/footer.css' %} ">
+<style media="screen">
+.language {background: blue; font-size: 10px; border: 1px solid #ccc;  color: #fff;  padding: 4px 15px;border: none; border-radius:  0px 0px 4px 4px;
+  margin: 10px;  margin: auto;}
+.language-select { position:absolute;  width: 200px;left:1px;text-align: center;   }
+</style>
+<div class="language-select">
+
+<form action="{% url 'set_language' %}" method="post">
+{% csrf_token %}
+{% get_current_language as LANGUAGE_CODE %}
+{% with request.get_full_path as full_path %}
+{% with full_path|slice:'3:' as path_without_language %}
+{% endwith %}{% endwith %}
+{% if LANGUAGE_CODE == 'ar' %}
+language :
+<button type='submit' name='language' value='en' class="language">
+<span class="label"></span>English</button>
+{% else %}
+اللغه :
+<button type='submit' name='language' value='ar' class="language">
+<span class="label"></span>عربي
+</button>{% endif %}</form>
+
+</div>
+
+
+
+<div class="NAVbar">{% if info.logo%}
+<a style=" float:right; margin-right:30px;z-index:200;margin-top:-33px;margin-left:50px;"href="/">
+<img src="{{info.logo.url}}" width="80px;"></a> {% endif %}
+<a href="/">{{BaseTextT.home}}</a>
+<a href="{% url 'Ecommerce:categories'%}">{{BaseTextT.ourProducts}}</a>
+<a href="{% url 'Ecommerce:blogAll' %}">{{BaseTextT.blog}}</a>
+{% for category in CategoryNav %}
+<a href="{% url 'Ecommerce:Category' category.slug %}"> {{ category.title }}</a>{% endfor %}
+<a href="{% url 'Ecommerce:TrackOrder' %}">{{BaseTextT.track_order}}</a>
+
+
+<!--
+<div class="dropdown">
+<button class="dropbtn">{{BaseTextT.all_Categories}}<i class="fa fa-caret-down"></i>  </button>
+<div class="dropdown-content"> <div class="header">
+<h2> {{BaseTextT.all_Categories}}</h2> </div>
+<div class="Row">{% for category in CategoryNav %}
+<div class="COlumn">
+<a href="{% url 'Ecommerce:Category' category.slug %}">
+<h4 style="color:#01b67a;"> {{ category.title|slice:"8" }} </h4></a>
+{% for item in category.item.all %}
+<a href="{% url 'Ecommerce:item_detail' item.slug %}">
+  {% if category.Image %}
+  <span style="  ">
+  <img src="{{ item.side_one.url }}" alt="{{ category.title }}"  style="width:30px; border: 1px solid #ddd;  border-radius:1px;" ></span>{% endif %}
+  <span style="position:relative;margin-top:-50px;  font-size:15px;">{{ item.title }}</span>
+
+</a>
+{% endfor %}</div>{% endfor %}</div>-->
+
+</div></div></div>
+ <!-- Simulate a smartphone / tablet -->
+ <div class="mobile-container">
+ <!-- Top Navigation Menu -->
+ <div class="topnav">
+<a href="/" class="active">{% if info.logo%}
+<img src="{{info.logo.url}}" width="70px;"  style="margin-top:-20px;"></a> {% endif %}
+<div id="myLinks">
+<a href="/">{{BaseTextT.home}} </a>
+<a href="{% url 'Ecommerce:categories'%}">{{BaseTextT.ourProducts}}</a>
+{% for category in CategoryNav %}
+<a href="{% url 'Ecommerce:Category' category.slug %}"> {{ category.title }}</a>{% endfor %}
+<a href="{% url 'Ecommerce:blogAll' %}">{{BaseTextT.blog}}</a>
+<a href="{% url 'Ecommerce:TrackOrder' %}">{{BaseTextT.track_order}}</a>
+
+
+
+</div> <a href="javascript:void(0);" class="icon" onclick="mobileFunction()">
+<i class="fa fa-bars"></i></a> </div>
+ <!-- End smartphone / tablet look -->
+ </div>
+
+ <script>
+ function mobileFunction() {
+   var x = document.getElementById("myLinks");
+   if (x.style.display === "block") {
+     x.style.display = "none";
+   } else {
+     x.style.display = "block";
+   }
+ }
+ </script>
+<style>
+.bodysize{max-width: 1400px;  margin: auto; ;}
+.BEST{width: 90%;margin: auto;  background-color:#fff;}
+@media only screen and (max-width: 950px) {
+.bodysize{width:95%; margin: auto;}
+.BEST{width: 99%;margin: auto;  background-color:#fff;}
+}</style>
+<section class="bodysize" >
+{% block content %}{% endblock %}
+  </section>
+
+<section class="BEST" >
+
+<style media="screen">
+.Title{width:100%;text-align:right;  font-size: 26px;color: #1a1a1a;line-height: 27px;  font-weight: 700;  position: relative;margin-bottom: 28px;margin-right:15px; margin-top:23px;   }
+@media (max-width: 768px) {
+.Title{  text-align: center;color: #000;margin-top: 0px;font-size: 15px;font-weight: bold;} }
+</style>
+
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+<br><br>
+<h1  class="Title">{{BaseTextT.best_selle}} </h1><div class="owl-slider">
+<div id="carousel" class="owl-carousel">{% for item in item %}
+<div class="item"><div class="card-div"><div class="card"><div class="containerImg">
+{% if item.stock_no <= 0 %}
+<div class="Out_stock"  > <span style="text-align:center">
+{{MoreText.stockout}}
+  </span> </div>{% endif %}
+{% if item.side_one %}
+<a href="{% url 'Ecommerce:item_detail' item.slug %}">
+<img src="{{ item.side_one.url }}" alt="Avatar" class="image"></a>{% endif %}
+<div class="overlay">{% if item.side_two %}{% if item.stock_no <= 0 %}
+<div class="Out_stock"  > <span style="text-align:center">{{MoreText.stockout}} </span> </div>{% endif %}
+<a href="{% url 'Ecommerce:item_detail' item.slug %}">
+<img src="{{ item.side_two.url }}" alt="Avatar" class="image"></a>{% endif %}</div></div>
+<div class="Container">
+<div class="single_product_text" ><h4 style="text-align:center;">{{ item.title }}</h4>
+<div style="width:80%;float:right;" >
+<p class="price"  ><span style="font-size:10px;">  {{BaseTextT.currency}} </span >  <br> {{ item.price }} </p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+{% if item.stock_no >= 1 %}
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button>{% endif %}
+</div> </div><br><div style="width:40%;float:right;text-align:center;">{% if item.stock_no >= 1 %}
+<button class="but_bay"  data-id="{{item.id }}" >{{MoreText.buy_Now}}  </button> {% endif %}</div>
+<div style="width:60%;float:right;text-align:center;">{% if item.stock_no >= 1 %}
+<a href="{% url 'Ecommerce:item_detail' item.slug %}"> <button class="but_know" >{{MoreText.learn_More}} </button></a>
+{% endif %} </div>  <br><br> <br> </div></div></div>
+</div>  {% endfor %}</div><br><br><br>  </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
+<script id="rendered-js">
+jQuery("#carousel").owlCarousel({
+          autoplay: true,
+          rewind: true, /* use rewind if you don't want loop */
+          margin: 20,
+          /*
+          animateOut: 'fadeOut',
+          animateIn: 'fadeIn',
+          */
+          responsiveClass: true,
+          autoHeight: true,
+          autoplayTimeout: 1000,
+          smartSpeed: 1000,
+          nav: true,
+          rtl: true, // Set rtl option to false for left-to-right direction
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 3
+            },
+            1024: {
+              items: 4
+            },
+            1366: {
+              items: 4
+            }
+          }
+        });
+        //# sourceURL=pen.js
+</script>
+</section>
+<section style='width:100%;float:right;'> <footer class="footer">
+ <ul class="social-icons">
+ {% if info.facebooklinke %}  <li><a href="{{ info.facebooklinke }}" target="_blank"><i class="fab fa-facebook"></i></a></li>{% endif %}
+ {% if info.Twitterlinke %}  <li><a href="{{ info.Twitterlinke }}" target="_blank"><i class="fab fa-twitter"></i></a></li>{% endif %}
+ {% if info.instagramlinke %}  <li><a href="{{ info.instagramlinke }}" target="_blank"><i class="fab fa-instagram"></i></a></li>{% endif %}
+ {% if info.linkedinlinke %}    <li><a href="{{ info.linkedinlinke }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>{% endif %}
+ {% if info.snapchat %}    <li><a href="{{ info.snapchat }}" target="_blank"><i class="fab fa-snapchat"></i></a></li>{% endif %}
+</ul><a href="{% url 'Users:login'  %}" target="_blank">
+  <h5 class="copywriter" style="text-align:center;">Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+  {{ info.title  }} </h5>
+ </a>
+ <br> <br>
+</footer></section>
+{% if info.Whatsapp %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a class="float-button" target="_blank" href="https://whatsapp.com/{{ info.Whatsapp }}">
+<i class="fa fa-whatsapp"  ></i>  <span> {{MoreText.help_you}}<span>  <!-- <span>Message me<span> -->  </a>{% endif %}
+<!--  -->
+<a class="button-card" href="{% url 'Ecommerce:Orderitem' %}">
+<button class="checkout-button">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count">{{ cart_item_count }}</span>
+<span id="cart-count"></span>
+</button>
+</a>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('.but_shopping').click(function() {
+        var itemId = $(this).data('id');
+        // alert(itemId);
+        var url = '{% url "Ecommerce:add_to_cart" 0 %}'.replace('0', itemId);
+        var csrfToken = '{{ csrf_token }}';
+
+        $.ajax({
+          url: url,
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            'csrfmiddlewaretoken': csrfToken,
+            // Other data...
+          },
+          success: function(data) {
+            console.log('AJAX request successful:', data);
+            $('.cart-item-count').text(data.cart_item_count);
+
+            showMessage(data.message, 3000); // Display success message for 3 seconds
+            refreshCartItemCount();
+
+          },
+
+          error: function(xhr, textStatus, errorThrown) {
+            console.log('AJAX request error:', errorThrown);
+          }
+        });
+      });
+    });
+
+
+
+
+    function showMessage(message, duration) {
+      var popup = $('<div>', {
+        class: 'popup-message',
+        text: message
+      }).appendTo('body');
+
+      setTimeout(function() {
+        popup.fadeOut('slow', function() {
+          popup.remove();
+        });
+      }, duration);
+    }
+  </script>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.but_bay').click(function() {
+      var itemId = $(this).data('id');
+      var url = '{% url "Ecommerce:go_to_cart" 0 %}'.replace('0', itemId);
+      var csrfToken = '{{ csrf_token }}';
+      $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: 'json',
+        data: {'csrfmiddlewaretoken': csrfToken,  },
+        success: function(data) {
+
+          window.location.href = '{% url "Ecommerce:Orderitem" %}'; // Redirect the user to the checkout page
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          console.log('AJAX request error:', errorThrown);
+        } });  });  }); </script>
+
+
+
+ <script>
+
+ $(document).ready(function() {
+   // Function to refresh the cart item count
+   function refreshCartItemCount() {
+     $.ajax({
+       url: '{% url "Ecommerce:refresh_cart_item" %}',
+       method: 'GET',
+       dataType: 'json',
+       success: function(data) {
+         $('.cart-count').text(data.cart_item_count);
+         $('#cart-count').text(data.cart_item_count);
+       },
+       error: function(xhr, textStatus, errorThrown) {
+         console.log('AJAX request error:', errorThrown);
+       }
+     });
+   }
+
+   // Refresh the cart item count initially
+   refreshCartItemCount();
+
+   // Refresh the cart item count every 3 seconds
+   setInterval(refreshCartItemCount, 1000);
+ });
+ </script>
+
+
+
+
+</body>
+
+</html>
