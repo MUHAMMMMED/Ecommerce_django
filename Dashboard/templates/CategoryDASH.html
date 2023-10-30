@@ -1,0 +1,71 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+
+
+<section>
+<div class="header"><h1>
+{% translate "الفئات" %}
+</h1>  </div>
+<div style="width:100%; float:right;">
+<a href="{% url 'Dashboard:create_category'%}"
+style ="
+ width:90%; margin:auto;
+text-decoration: none;
+display: block;
+padding: 10px 20px;
+border: 0px solid #00874c;
+border-radius: 4px;
+color: #00874c;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;">
+<button class="add-new-button"> {% translate "اضافة فئة جديدة" %}</button></a></div>
+
+
+
+{% for category in category %}
+<div class="responsive">
+<div class="gallery">
+{% if category.Image %}
+<img src="{{ category.Image.url }}" alt="{{ category.title }}" width="600" height="400">
+{% endif %}
+<div class="desc">{{ category.title }}</div>
+<a href="{% url 'Dashboard:update_category' category.id %}" class="genric-btn success-border"
+style ="
+width:90%; margin:auto;   text-decoration: none;
+display: block;  padding: 10px 20px;
+border: 1px solid #00874c;
+border-radius: 4px;
+color: #00874c;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;">
+
+
+{% translate "تحديث" %} </a><br>
+<a href="{% url 'Dashboard:delete_category' category.id %}" class="genric-btn success-border"
+style ="
+width:90%; margin:auto;   text-decoration: none;
+display: block;  padding: 10px 20px;
+border: 1px solid #00874c;
+border-radius: 4px;
+color: #00874c;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;
+color:red;border: 1px solid red;
+         ">
+
+ {% translate "حذف" %} </a>
+<div class="actions">
+</div></div> </div>
+{% endfor %}
+</section>
+
+
+
+
+
+
+{% endblock %}

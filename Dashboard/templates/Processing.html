@@ -1,0 +1,46 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="header"><h1>{{Title}}</h1>  </div>
+  <div>
+    <div class="card" style="  border: 0px solid #ddd; position: fixed; margin-top: -15px;background-color:#fff;padding: 15px; padding-top:25px;"><table><tr>
+  <td style="width:30%;text-align: right; ">  </td>
+  <td style="width:30%;  ">{% translate "عدد الطلبات" %}      <span style="background-color: #000; padding:5px; border-radius: 15px ;color:#fff;">{{order_count}}</span>   </td>
+  <td style="width:40%; text-align: left;">   </td>
+  </tr> </table></div>
+
+  </div>
+
+
+  <div class="card" style="border: 0px solid #ddd; margin-top:10px"><table> <br><br></table></div>
+
+   <div class="card" style="  border: 0px solid #ddd; " ><table><tr>
+  <td style="width:20%; text-align: right; ">{% translate "التاريخ" %}   </td>
+  <td style="width:20%;">{% translate "الاسم" %} </td>
+  <td style="width:20%;"> {% translate "حالة الدفع" %}  </td>
+  <td style="width:40%; text-align: left;"> </td>
+  </tr> </table></div>
+  {% for order in order %}
+
+  <div class="card"><table><tr>
+  <td style="width:20%;text-align: right; "> {{order.created_at}}   </td>
+  <td style="width:20%;">  {{order.name}} </td>
+  <td style="width:20%;">
+    {% if order.default == True %} {% translate "تم الدفع" %} {% else %}{% translate "لم يتم الدفع" %}
+
+     {% endif %}
+   </td>
+  <td style="width:40%; text-align: left;">
+<a href="{% url 'Dashboard:orderdetails' order.id %}">
+
+    <button class="add-to-cart-btn">{% translate "عرض الطلب" %} </button> </a></td>
+  </tr> </table></div>
+{% endfor %}
+
+
+
+
+  </section>
+  {% endblock %}

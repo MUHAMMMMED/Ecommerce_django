@@ -1,0 +1,64 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+    <!--================Blog Area =================-->
+
+ <style media="screen">
+.con {padding-top: 50px;  width: 100%;  float: right;  }
+.post img { width: 100%; height: 200px;object-fit: cover;  border-radius: 4px;  margin-bottom: 10px;  }
+.post h2 { font-size: 24px; margin-top: 0;  margin-bottom: 10px;  text-align:center;  }
+.post p {font-size: 16px;  margin-top: 5px;  margin-bottom: 10px;text-align:center;  }
+ .post a {
+     text-decoration: none;  display: block;  padding: 10px 20px;  border: 1px solid #00874c;  border-radius: 4px;  color: #00874c;  text-align: center;  transition: background-color 0.3s, color 0.3s;  }
+ /* Post style */
+.post {  width: 24%; float: right; margin-left:1%; border: 1px solid #ccc;margin-bottom: 20px; padding: 10px;  box-sizing: border-box;  }
+/* For screens larger than 768px */
+
+.add-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.add-button:hover {
+  background-color: #000;
+}
+
+.add-button:active {
+  background-color: #3e8e41;
+}
+@media (max-width: 768px) {  .post {  width: 100%;  float: right;  }}
+</style>
+<section style=" width: 100%;  margin-top:50px; float:right; "  >
+<a href="{% url 'Dashboard:create_blog' %}"  class="genric-btn success-border" style="width:100%;text-decoration: none;  display: block;  padding: 10px 20px;  border: 0px solid #00874c;  border-radius: 4px;  color: #00874c;  text-align: center;  transition: background-color 0.3s, color 0.3s;  }  ">
+<button type="button" name="button" class="add-button">{% translate "اضافة جديد" %}</button></a>
+ <div  class="con">
+{% if blogs  %}
+{% for blog_obj in blogs %}
+<div class="post">
+{% if blog_obj.Image %}
+<img class="card-img rounded-0" src="{{ blog_obj.Image.url }}" alt=""> {% endif %}
+<h2> {{ blog_obj.Titel }}</h2>
+<p>{{ blog_obj.description }}.</p>
+ <a href="{% url 'Dashboard:update_blog' blog_obj.id %}" class="genric-btn success-border">  {% translate "تحديث" %} </a>
+<br>
+ <a href="{% url 'Dashboard:delete_blog' blog_obj.id %}" class="genric-btn success-border" style ="color:red;border: 1px solid red; ">
+ {% translate "حذف" %} </a>
+</div>
+{% endfor %}</div>{% else %} <h1 style="text-align:center;">    {% translate "لا توجد مقالات" %}</h1>{% endif %}
+ </section>
+    <!--================Blog Area =================-->
+ <br>
+  <div class="width:100%;"></div>
+ <style media="screen">
+  .Buy{display:none;}
+  .BEST{display:none}
+  .checkout-button {display:none}
+   </style>
+{% endblock %}

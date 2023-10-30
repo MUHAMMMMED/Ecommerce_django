@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html>
+<head>
+    <title>Delete Item</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            margin-bottom: 30px;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-container a,
+        .btn-container button {
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-container a.cancel {
+            background-color: #ccc;
+            margin-right: 10px;
+        }
+
+        .btn-container button.delete {
+            background-color: #f44336;
+        }
+
+        .btn-container a:hover,
+        .btn-container button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>  {% translate "حذف" %}</h2>
+        <div class="form-container">
+            <form method="POST">
+                {% csrf_token %}
+                <p style="text-align:center;">
+                   {% translate "  هل أنت متأكد أنك تريد حذف هذا  ؟" %}
+                  </p>
+                <div class="btn-container">
+                    <a href="{% url 'Dashboard:category' %}" class="cancel"> {% translate "الغاء" %}</a>
+                    <button type="submit" class="delete">{% translate "حذف" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

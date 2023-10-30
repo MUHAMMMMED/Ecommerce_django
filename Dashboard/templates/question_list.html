@@ -1,0 +1,65 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<section>
+  <style media="screen">
+    /* CSS Styles for question_list.html */
+    .question-card { border: 1px solid #ccc;padding: 10px;  margin-bottom: 20px;  }
+    .button-group {margin-top: 10px;margin-right:25px;  }
+    .button-group .btn {  margin-right: 5px;}
+    /* CSS Styles for Arabic translation */
+    body[dir="rtl"] {font-family: 'Helvetica', sans-serif;}
+    .question-card {  text-align: right;border-color: #ccc;}
+    .button-group .btn {margin-right: 0;margin-left: 5px;}
+    /* Custom button styles */
+    .btn {   display: inline-block;  padding: 8px 16px;  font-size: 14px;  font-weight: bold;  text-decoration: none;  cursor: pointer;  border-radius: 4px;  transition: background-color 0.3s ease;}
+    .btn-primary { color: #fff;background-color: #007bff;border: none;    }
+    .btn-primary:hover {  background-color: #0056b3;  }
+    .btn-success { color: #fff;  background-color: #000;  border: none;  padding:15px;  width:100px;}
+    .btn-success:hover {background-color: #1f813e;  }
+  </style>  <br>  <br>
+<h1>{% trans 'قائمة الأسئلة' %}</h1>
+<div class="button-group">  <br>
+<a href="{% url 'Dashboard:create_Question' %}"
+
+class="genric-btn success-border"
+style ="
+width:50%; margin:auto;   text-decoration: none;
+display: block;  padding: 10px 20px;
+border: 0px solid #00874c;
+border-radius: 4px;
+color: #00874c;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;"
+> <button type="button"class="btn btn-success" name="button">{% trans 'إنشاء' %}</button>
+</a></div>
+{% for question in questions %}
+<div class="question-card"><h3 style ="text-align:center;">{{ question.question }}</h3>
+<br>
+<p style ="text-align:center;">{{ question.answer }}</p><br><br>
+<div class="button-group">
+<a href="{% url 'Dashboard:update_Question' question.id %}"  class="genric-btn success-border"
+style ="
+width:50%; margin:auto;   text-decoration: none;
+display: block;  padding: 10px 20px;
+border: 1px solid #00874c;
+border-radius: 4px;
+color: #00874c;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;">{% trans 'تحديث' %}</a><br>
+<a href="{% url 'Dashboard:delete_Question' question.id %}" class="genric-btn success-border"
+style ="
+width:50%; margin:auto;   text-decoration: none;
+display: block;  padding: 10px 20px;
+border: 1px solid #00874c;
+border-radius: 4px;
+color: #00874c;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;
+color:red;border: 1px solid red;
+">{% trans 'حذف' %}</a>
+<br></div></div><br>
+{% empty %}<p>{% trans 'لا توجد أسئلة متاحة.' %}</p>{% endfor %}
+</section>
+{% endblock %}

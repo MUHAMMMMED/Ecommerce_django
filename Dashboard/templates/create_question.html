@@ -1,0 +1,43 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+  <style>
+  form {    border-radius: 5px;  }
+   .container {border-radius: 5px;  padding: 20px;  background-color: #fff;    }
+  input[type=text], input[type=submit] {  width: 100%;  padding: 12px;  margin: 8px 0;display: inline-block;  border: 2px solid #000;    box-sizing: border-box;}
+  input[type=text], input[type=number], select, textarea {    width: 100%;    padding: 12px;   border: 2px solid #000;border-radius: 4px;  box-sizing: border-box;  margin-top: 6px; margin-bottom: 16px; resize: vertical;  }
+  input[type=checkbox] {  margin-top: 16px;    }
+  input[type=submit] {       background-color: #01b67a !important;
+  color: white;  border: none;  }
+  input[type=submit]:hover {    opacity: 0.8;  }
+  input[type="file"] {  display: inline-block;  font-size:20px;   border-radius: 50px;  cursor: pointer;  text-align: center;  }
+  input[type="file"]:hover {    background-color: #000;  }
+  .help-text {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+  </style><section style=" width:70%;margin:auto;">
+    <form method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+     <div class="container">
+       <small class="help-text">{{ form.question.help_text }}</small>
+       {{ form.question }}
+       [ar]: {{ form.question_ar }}
+       [en]: {{ form.question_en }}
+       <br><br>
+       <small class="help-text">{{ form.answer.help_text }}</small>
+       {{ form.answer }}
+       [ar]: {{ form.answer_ar }}
+       [en]: {{ form.answer_en }}
+     </div>
+     <input type="submit" class="btn_submit" value="{% translate "حفظ" %}">
+   </form>
+</section>
+
+
+
+
+
+{% endblock %}

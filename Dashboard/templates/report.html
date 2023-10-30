@@ -1,0 +1,87 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<section>
+<style media="screen">
+  /* CSS Stylesheet */
+.order-list {  width:80%;
+  list-style-type: none;
+  padding: 0;
+  margin:0 auto;
+}
+
+.order-list li {
+  margin-bottom: 10px;
+  width:100%;
+  float:right;
+  border: 1px solid #ddd;
+  padding:10px;
+  font-size:20px;
+  text-align:center;
+}
+
+.order-status {
+  font-weight: bold;
+}
+
+.order-count {
+  margin-left: 10px;
+}
+.print-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #45a049;
+}
+</style>
+ <head>
+     <title>Order Report</title>
+ </head>
+
+ <br> <br> <br>
+<<style>
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .order-list, .order-list * {
+    visibility: visible;
+  }
+
+  .order-list {
+     left: 0;
+    top: 0;
+  }
+}
+</style>
+
+<ul class="order-list">
+  <li>
+    <span class="order-status">waiting buy</span>:
+    <span class="order-count">{{ waiting_buy_count }}</span>
+  </li>
+  {% for order_count in order_counts %}
+    <li>
+      <span class="order-status">{{ order_count.Orderـstatus }}</span>:
+      <span class="order-count">{{ order_count.count }}</span>
+    </li>
+  {% endfor %}
+<li><button class="print-button" onclick="window.print()">Print</button></li>
+
+
+</ul>
+
+</section>
+{% endblock %}

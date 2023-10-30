@@ -1,0 +1,192 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+  <style>
+.price {color:#000; margin-left: 20px;margin-right: 10px;font-size: 15px;  }
+.add-to-cart-btn { margin-left: 0px;  padding: 20px;  font-size: 17px;  background-color:#00874c;  color: white;  cursor: pointer;   border: 1px solid #ccc;    border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  }
+.add-to-cart-btn:hover {  background-color: #45a049;}
+table { background-color: #fff; border-collapse: collapse;border-spacing: 0;  width: 100%;   }
+th, td { text-align: center;font-size: 14px; }
+.card {padding:3px;  width: 90%;     margin: auto; margin-top: 15px;  border: 1px solid #ddd;   border-radius: 8px;  color: #000;  }
+</style>
+<section>
+<div>
+<div class="card" style="border: 0px solid #ddd; margin-top:10px" ><table> <br><br></table></div>
+<div class="card"style=" border: 3px solid #000;">
+<table>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;">  التاريخ  </td>
+<td style="width:70%;text-align: right;; ">  {{order.created_at}} </td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">حالة الدفع</td>
+<td style="width:70%;text-align: right;; ">
+{% if order.default == True %}  تم الدفع{% else %}لم يتم الدفع   {% endif %}
+</td></tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">تتبع الطلب</td>
+<td style="width:70%;text-align: right;; "> {{order.Tracking}} </td>
+</tr><tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">حالة الطلب</td>
+<td style="width:70%;text-align: right;; "> {{order.Orderـstatus}} </td>
+</tr></table></div>
+<div class="card"  style="  border: 0px solid #000;">
+<table><tr>
+<td style="width:100%;text-align:center;  border: 0px solid #000;"> البيانات الشخصية  </td>
+</tr></table></div>
+<div class="card" style=" border: 3px solid #000;">
+<table><tr style="width:100%; "><td style="width:30%;text-align: center;">   الاسم  </td>
+<td style="width:70%;text-align: center; "> {{order.name}}</td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">اسم الشركة</td>
+<td style="width:70%;text-align: center; "> {{order.companyname}}</td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">   رقم الهاتف </td>
+<td style="width:70%;text-align: center; "> {{order.phone}}</td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">  البريد الالكتروني  </td>
+<td style="width:70%;text-align: center; "> {{order.emailaddress}} </td>
+</tr> </table></div> </div>
+<div class="card"style="  border: 0px solid #000;">
+<table>  <tr>
+<td style="width:100%;text-align:center; "> معلومات الشحن </td>
+</tr></table>
+<div class="card"  style=" border: 3px solid #000;"><table>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center; ">   الدولة  </td>
+<td style="width:70%;text-align: center; "> {{order.country}} </td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">المدينة</td>
+<td style="width:70%;text-align: center; ">{{order.city}} </td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">العنوان </td>
+<td style="width:70%;text-align: center; "> {{order.shipping_address}} </td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  "> العنوان اخر  </td>
+<td style="width:70%;text-align: center; "> {{order.apartment_address}} </td>
+</tr>
+<tr style="width:100%; ">
+<td style="width:30%;text-align: center;  ">الرمز البريدي  </td>
+<td style="width:70%;text-align: center; "> {{order.zip}} </td>
+</tr></table></div>
+<br>
+<div class="card"style="  border: 0px solid #000;">
+<table><tr>
+<td style="width:100%;text-align:center; "> المنتجات </td>
+</tr></table></div>
+<div class="card" style=" border: 3px solid #000;"><table >
+<tr>
+<td style="width:25%;text-align: center;  ">  المنتج  </td>
+<td style="width:25%;text-align: center; "> السعر </td>
+<td style="width:25%;text-align: center; "> الكميه </td>
+<td style="width:25%;text-align: center; "> المجموع </td>
+</tr> </table></div>
+{% for item in order.item.all %}
+<div class="card" style="   border-radius: 0px;   border: 0px solid #ddd; border-bottom: 1px solid #ddd;  "><table><tr>
+<td style="width:25%;text-align: center; "> {{ item.items }} </td>
+<td style="width:25%;text-align: center; ">{{ item.price }} </td>
+<td style="width:25%;text-align: center; "> {{ item.quantity }} </td>
+<td style="width:25%;text-align: center; "> {{ item.total_price }} </td>
+</tr> </table></div>
+{% endfor %}
+<div class="card"  style=" border: 3px solid #000;"><table><tr>
+<tr style="width:100%; ">
+<td style="width:50%;text-align: center; "> المجموع   </td>
+<td style="width:50%;text-align: center; "> {{Subtotal}} </td>
+</tr><tr style="width:100%; ">
+<td style="width:50%;text-align: center; ">الضريبة</td>
+<td style="width:50%;text-align: center; "> {{tax_number}}</td>
+</tr><tr style="width:100%; ">
+<td style="width:50%;text-align: center; "> قيمة الشحن  </td>
+<td style="width:50%;text-align: center; "> {{shipping_price}}</td>
+</tr><tr style="width:100%;border-top:  1px solid #ddd; ">
+<td style="width:50%;text-align: center;  "> الاجمالي  </td>
+<td style="width:50%;text-align: center; ">{{overall_total_price}}<br>
+    <span  >بالدولار  : {{ENoverall_total_price}}</span></td>
+</tr></table></div>
+<div class="card" style=" border: 0px solid #ddd;"><table><tr>
+<td style="width:100%;    border: 0px solid #ddd;">
+<style media="screen">
+.select-status { padding: 10px;font-size: 16px;border: 1px solid #ccc; border-radius: 4px;}
+</style>
+
+<a href="{% url 'Dashboard:invoice' order.id %}">
+  <button class="add-to-cart-btn" name="day"> عرض الفاتورة</button>
+
+  </a>   </div>  <br><br> <br>
+
+
+ <div  style="margin:auto; ">
+<div  style="width:200px;float:right;  ">
+<form method="POST">
+{% csrf_token %}
+<select name="stat" class="select-status">
+<option value="">حدد حاله الطلب </option>
+<option value="waiting"> انتظار</option>
+<option value="Orderprocessing"> تجهيز الطلب</option>
+<option value="Shipping"> تم الشحن</option>
+<option value="Orderdone"> تم</option>
+<option value="cancel"> الغاء</option>
+</select>
+
+
+
+
+
+
+
+
+<button class="add-to-cart-btn"type="submit" name="status">حفظ</button>
+</form>
+</div>
+<div  style="width:250px;float:right;">
+<form method="POST">
+{% csrf_token %}
+<select name="Day" class="select-status">
+<option value="">حدد يوم وصول الشحن</option>
+<option value="sat">السبت</option>
+<option value="sun">الأحد</option>
+<option value="mon">الاثنين</option>
+<option value="tue">الثلاثاء</option>
+<option value="wed">الأربعاء</option>
+<option value="thu">الخميس</option>
+<option value="fri">الجمعة</option>
+</select>
+<button class="add-to-cart-btn" type="submit" name="day">حفظ</button>
+</form>
+</div>
+</div>
+<br><br><br>
+{% if order.anticipation %}
+  <h1>يوم وصول الشحن</h1>
+  {% if order.anticipation == 'sat' %}
+      <p>السبت</p>
+  {% elif order.anticipation == 'sun' %}
+      <p>الأحد</p>
+  {% elif order.anticipation == 'mon' %}
+      <p>الاثنين</p>
+  {% elif order.anticipation == 'tue' %}
+      <p>الثلاثاء</p>
+  {% elif order.anticipation == 'wed' %}
+      <p>الأربعاء</p>
+  {% elif order.anticipation == 'thu' %}
+      <p>الخميس</p>
+  {% elif order.anticipation == 'fri' %}
+      <p>الجمعة</p>
+  {% endif %}
+{% endif %}
+    </td>
+   </tr> </table>
+
+ </div>
+<br><br><br><br><br><br><br><br>
+  </section>
+  {% endblock %}

@@ -1,0 +1,50 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+ <style media="screen">
+   .add-new-button {
+  background-color: #000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.add-new-button:hover {
+  background-color: #ddd;
+  color:#000;
+}
+ </style>
+<section>
+<div class="header"><h1>
+{% translate "المنتجات" %}
+
+  </h1>  </div>
+<div style="width:100%; float:right;">
+<a href="{% url 'Dashboard:create_item'%}">
+<button class="add-new-button"> {% translate " اضافة منتج جديد" %}</button></a></div>
+
+
+
+{% for item in Items %}
+<div class="responsive">
+<div class="gallery">
+{% if item.side_one %}
+<img src="{{ item.side_one.url }}" alt="{{ item.title }}" width="600" height="400">
+{% endif %}
+<div class="desc">{{ item.title }}</div>
+<div class="desc"> {% translate "الكمية المتاحة" %}   {{ item.stock_no }}</div>
+
+<div class="actions">
+<a href="{% url 'Dashboard:delete_item' item.id %}">
+<button class="delete-button" style="border-radius:0px 0px 15px 0px ;"> {% translate "حذف" %} </button></a>
+
+<a   href="{% url 'Dashboard:update_item' item.id %}">
+<button class="update-button"style="border-radius:0px 0px 0px 15px ;"> {% translate "تحديث" %} </button></a>
+</div></div> </div>
+{% endfor %}
+</section>
+{% endblock %}

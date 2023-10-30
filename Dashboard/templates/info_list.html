@@ -1,0 +1,112 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+    <!--================Blog Area =================-->
+
+ <style media="screen">
+.con {padding-top: 50px;  width: 100%;  float: right;  }
+.post img { width: 100%; height: 200px;object-fit: cover;  border-radius: 4px;  margin-bottom: 10px;  }
+.post h2 { font-size: 24px; margin-top: 0;  margin-bottom: 10px;  text-align:center;  }
+.post p {font-size: 16px;  margin-top: 5px;  margin-bottom: 10px;text-align:center;  }
+ .post
+ a {    text-decoration: none;  display: block;  padding: 10px 20px;  border: 1px solid #00874c;  border-radius: 4px;  color: #00874c;  text-align: center;  transition: background-color 0.3s, color 0.3s;  }
+ /* Post style */
+.post {  width:50%; margin:auto; border: 1px solid #ccc;margin-bottom: 20px; padding: 10px;  box-sizing: border-box;  }
+/* For screens larger than 768px */
+
+.add-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+ 
+
+.add-button:active {
+  background-color: #3e8e41;
+}
+ </style>
+<section style=" width: 100%;  margin-top:50px; float:right; "  >
+
+
+  {% if info_list %}
+
+ {% else %}
+
+  <a href="{% url 'Dashboard:create_info' %}"
+
+
+
+  class="genric-btn success-border"
+  style ="
+  width:100%; margin:auto;   text-decoration: none;
+  display: block;  padding: 10px 20px;
+  border: 0px solid #00874c;
+  border-radius: 4px;
+  color: #00874c;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;"
+>
+ <button type="button"   class="add-button" name="button">{% translate "اضافة جديد" %}</button>
+
+</a>
+ {% endif %}
+
+ <div  class="con">
+{% if info_list  %}
+{% for info in info_list %}
+<div class="post">
+
+
+{% if info.FaviconIco %}
+<img class="card-img rounded-0" src="{{ info.FaviconIco.url }}" alt=""> {% endif %}
+<br>
+{% if info.logo %}
+<img class="card-img rounded-0" src="{{ info.logo.url }}" alt=""> {% endif %}
+<br>
+<h2>{% translate "العنوان" %}</h2>
+<h2>{{ info.title }}</h2>
+<h2>{% translate "الهاتف" %}</h2>
+<h2>{{ info.PHONE }}</h2>
+<h2>{% translate "واتساب" %}</h2>
+<h2>{{ info.Whatsapp }}</h2>
+<h2>{% translate "رابط LinkedIn" %}</h2>
+<h2>{{ info.linkedinlinke }}</h2>
+<h2>{% translate "سناب شات" %}</h2>
+<h2>{{ info.snapchat }}</h2>
+<h2>{% translate "رابط إنستجرام" %}</h2>
+<h2>{{ info.instagramlinke }}</h2>
+<h2>{% translate "رابط تويتر" %}</h2>
+<h2>{{ info.Twitterlinke }}</h2>
+<h2>{% translate "رابط فيسبوك" %}</h2>
+<h2>{{ info.facebooklinke }}</h2>
+<h2>{% translate "عنوان الخريطة" %}</h2>
+<h2>{{ info.Map_Address }}</h2>
+<br>
+ <a href="{% url 'Dashboard:update_info' info.id %}" class="genric-btn success-border">  {% translate "تحديث" %} </a>
+<br>
+ <a href="{% url 'Dashboard:delete_info' info.id %}" class="genric-btn success-border" style ="color:red;border: 1px solid red; ">
+ {% translate "حذف" %} </a>
+</div>
+
+
+
+
+
+{% endfor %}</div>{% else %} <h1 style="text-align:center;">    {% translate  "لا يوجد بيانات" %}</h1>{% endif %}
+ </section>
+    <!--================Blog Area =================-->
+ <br>
+  <div class="width:100%;"></div>
+ <style media="screen">
+  .Buy{display:none;}
+  .BEST{display:none}
+  .checkout-button {display:none}
+   </style>
+{% endblock %}

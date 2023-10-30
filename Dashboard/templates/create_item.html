@@ -1,0 +1,334 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<style>
+form {    border-radius: 5px;  }
+ .container {border-radius: 5px;  padding: 20px;  background-color: #fff;    }
+input[type=text], input[type=submit] {  width: 100%;  padding: 12px;  margin: 8px 0;display: inline-block;  border: 2px solid #000;    box-sizing: border-box;}
+input[type=text], input[type=number], select, textarea {    width: 100%;    padding: 12px;   border: 2px solid #000;border-radius: 4px;  box-sizing: border-box;  margin-top: 6px; margin-bottom: 16px; resize: vertical;  }
+input[type=checkbox] {  margin-top: 16px;    }
+input[type=submit] {  background-color: #d1c091;  color: white;  border: none;  }
+input[type=submit]:hover {    opacity: 0.8;  }
+input[type="file"] {  display: inline-block;    border-radius: 50px;  cursor: pointer;  text-align: center;  }
+input[type="file"]:hover {    background-color: #000;  }
+.help-text {
+font-size: 12px;
+color: #999;
+margin-top: 5px;
+}
+</style>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+
+
+
+<section style=" width:90%;margin:auto;">
+  <small class="help-text">{{ form.keywords.help_text }}</small>
+  {{ form.keywords}}
+  [ar]: {{ form.keywords_ar}}
+  [en]: {{ form.keywords_en }}
+<br>
+  <!-- {{ form.slug.help_text }}
+  {{ form.slug  }} -->
+
+  <div  style=" width:100%;text-align:center border-radius:8px;height:200px;margin-bottom:50px;  ">
+  <div style=" width:49%; margin-right:1%; border: 1px solid #ccc;height:200px; float:right;background-color: #f1f1f1;" >
+  <small class="help-text">{{ form.side_one.help_text }}</small>
+{{ form.side_one  }}
+    </div>
+    <div style=" width:49%; margin-right:1%; border: 1px solid #ccc;height:200px; float:right;background-color: #f1f1f1;" >
+{{ form.side_two.help_text }}
+{{ form.side_two  }}
+      </div>
+  </div>
+
+
+
+<div  style=" width:100%;text-align:center;border: 1px solid #ccc;background-color: #f1f1f1;border-radius:8px;height:200px;  ">
+<h1  style="text-align:center;font-size:15px;" >صوره الغلاف </h1>
+  <small class="help-text">{{ form.top_slider_web.help_text }}</small>
+{{ form.top_slider_web  }}</div>
+<div  style="width:50%;  text-align:center;border: 1px solid #ccc;background-color: #f1f1f1border-radius:8px;height:500px;margin:auto;margin-top:30px;  ">
+<h1 style="text-align:center;font-size:15px;">صوره الغلاف للموبيل </h1>
+  <small class="help-text">{{ form.top_slider_mobile.help_text }}</small>
+{{ form.top_slider_mobile  }}</div>
+<div  style=" width:100%;text-align:centerborder: 1px solid #ccc;background-color: #f1f1f1;border-radius:8px;height:200px;margin:auto;margin-top:30px;  ">
+<h1 style="text-align:center;font-size:15px;">فيديو الغلاف  </h1>
+  <small class="help-text">{{ form.top_slider_video.help_text }}</small>
+{{ form.top_slider_video  }}</div>
+<div  style="width:50%;  text-align:center;border: 1px solid #ccc;background-color: #f1f1f1;border-radius:8px;height:500px;margin:auto;margin-top:30px;  ">
+<h1 style="text-align:center;font-size:15px;"> فيديو كيف تعمل </h1>
+  <small class="help-text">{{ form.video_link1.help_text }}</small>
+{{ form.video_link1  }}</div>
+<div  style="width:100%;  text-align:center;height:1000px;margin:auto;margin-top:30px;  ">
+<h1 style="text-align:center;font-size:15px;">صوره المنتج </h1>
+<div  style="width:60%;  text-align:center;height:700px; float:right;margin-top:0px;  ">
+<div  style="  width:100%;    text-align:center;  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  height:500px;   float:right;margin-top:0px;    ">
+</div>
+<div  style="  width:15.5%;  text-align:center  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  height:200px;   float:right;  margin-top:10px;margin-right:1%;    ">
+  <small class="help-text">{{ form.Image1.help_text }}</small>
+{{ form.Image1  }}  </div>
+<div  style="  width:15.5%;  text-align:center  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  height:200px;   float:right;  margin-top:10px;margin-right:1%;    ">
+  <small class="help-text">{{ form.Image2.help_text }}</small>
+{{ form.Image2  }}  </div>
+<div  style="  width:15.5%;  text-align:center  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  height:200px;   float:right;  margin-top:10px;margin-right:1%;    ">
+  <small class="help-text">{{ form.Image3.help_text }}</small>
+{{ form.Image3  }}</div>
+<div  style="  width:15.5%;  text-align:center  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  height:200px;   float:right;  margin-top:10px;margin-right:1%;    ">
+  <small class="help-text">{{ form.Image4.help_text }}</small>
+{{ form.Image4  }}</div>
+<div  style="  width:15.5%;  text-align:center  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  height:200px;   float:right;  margin-top:10px;margin-right:1%;    ">
+  <small class="help-text">{{ form.Image5.help_text }}</small>
+{{ form.Image5  }}</div>
+<div  style="  width:15.5%;  text-align:center  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  height:200px;   float:right;  margin-top:10px;margin-right:1%;    ">
+  <small class="help-text">{{ form.Image6.help_text }}</small>
+{{ form.Image6  }}  </div>
+
+<div  style="width:60%;  text-align:center;height:200px;margin-top:0px;margin:auto;  ">
+<p style="text-align:center;font-size:15px;" >اضافة فيديوي اليوتيوب</p>
+  <small class="help-text">{{ form.video_link2.help_text }}</small>
+{{ form.video_link2  }}</div>
+</div>
+<div  style="width:38%;  text-align:center; float:right;margin-top:0px;margin-right:2%;  ">
+<div  style="  width:100%;  text-align:center;   border-radius:8px;   float:right;  margin-top:10px;margin-right:1%;  ">
+<p style="text-align:center;font-size:15px;" >اسم المنتج</p>
+  <small class="help-text">{{ form.title.help_text }}</small>
+{{ form.title  }}
+
+Title [ar]: {{ form.title_ar}}
+Title [en]: {{ form.title_en }}
+
+</div>
+<div  style=" width:50%; text-align:center; float:right;  margin-right:1%;">
+<p style="text-align:center;font-size:15px;" >السعر</p>
+  <small class="help-text">{{ form.price.help_text }}</small>
+{{ form.price  }}  </div>
+<div  style="  width:50%;  text-align:center; float:right;  margin-right:1%;  ">
+<p style="text-align:center;font-size:15px;" >عدد القطع الموجوده</p>
+  <small class="help-text">{{ form.stock_no.help_text }}</small>
+{{ form.stock_no  }}  </div>
+<div  style="width:100%;text-align:center; float:right;  margin-right:1%;">
+ <p style="text-align:center;font-size:15px;" >معلومات مختصره عن المنتج</p>
+  <small class="help-text">{{ form.description_short.help_text }}</small>
+{{ form.description_short  }}
+[ar]:{{ form.description_short_ar }}
+[en]:{{ form.description_short_en }}
+ </div><br>
+<div  style="width:100%;text-align:center; float:right;margin-right:1%;  ">
+<div  style="  width:49%;  text-align:center;  height:50px; float:right;  margin-right:1%;    ">
+<p style="text-align:center;font-size:15px;" >الكمية</p>
+  <small class="help-text">{{ form.quantity1.help_text }}</small>
+{{ form.quantity1  }}  </div>
+<div  style="    width:49%;    text-align:center;   float:right;margin-right:1%;  ">
+<p style="text-align:center;font-size:15px;" >الخصم</p>
+  <small class="help-text">{{ form.discount_price1.help_text }}</small>
+{{ form.discount_price1  }}
+
+    </div>
+</div>
+ <div  style="width:100%;  text-align:center;float:right;  margin-right:1%;  ">
+<div  style=" width:49%; text-align:center; float:right;margin-right:1%;  ">
+  <small class="help-text">{{ form.quantity2.help_text }}</small>
+{{ form.quantity2  }}</div>
+<div  style=" width:49%;text-align:center; float:right; margin-right:1%;  ">
+  <small class="help-text">{{ form.discount_price2.help_text }}</small>
+{{ form.discount_price2  }}</div>
+</div>
+<div  style="  width:100%; text-align:center; float:right;  margin-right:1%;  ">
+<div  style=" width:49%;text-align:center;float:right;margin-right:1%;  ">
+  <small class="help-text">{{ form.quantity3.help_text }}</small>
+{{ form.quantity3  }}  </div>
+<div  style="  width:49%;float:right;margin-right:1%;  ">
+  <small class="help-text">{{ form.discount_price3.help_text }}</small>
+{{ form.discount_price3  }}  </div>  </div>
+<div  style="width:100%;text-align:center; float:right;  margin-right:1%;">
+ <p style="text-align:center;font-size:15px;" > الوصف التفصيلي</p>
+  <small class="help-text">{{ form.description_long.help_text }}</small>
+{{ form.description_long  }}
+  [ar]: {{ form.description_long_ar}}
+  [en]: {{ form.description_long_en }}
+
+
+ </div><br>
+
+
+
+<div  style="width:100%;text-align:center; float:right;margin-right:1%;  ">
+<p style="text-align:center;font-size:15px;" >اختر الفئة</p>
+  <small class="help-text">{{ form.category_id.help_text }}</small>
+{{ form.category_id  }}  </div></div>
+</div>
+
+<div  style="width:100%;  text-align:center;margin:auto;margin-top:30px;">
+
+
+
+<div  style="  width:100%;text-align:center;  margin:auto;  margin-top:30px;  ">
+<div  style="  width:100%;  text-align:center;  border: 1px solid #ccc;  background-color: #f1f1f1;    border-radius:8px;height:50px;  margin:auto;  margin-top:30px;">
+</div>
+<div  style="width:100%;  text-align:center;  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  margin:auto;margin-top:30px;  height:100px;">
+</div>
+
+
+</div>
+
+
+<div  style="  width:100%;text-align:center;  margin:auto;  margin-top:30px;  ">
+<div  style="  width:100%;  text-align:center;  border: 1px solid #ccc;  background-color: #f1f1f1;    border-radius:8px;height:50px;  margin:auto;  margin-top:30px;">
+</div>
+<div  style="width:100%;  text-align:center;  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  margin:auto;margin-top:30px;  height:100px;">
+</div>
+
+
+</div>
+
+
+
+<div  style="  width:100%;text-align:center;  margin:auto;  margin-top:30px;  ">
+<div  style="  width:100%;  text-align:center;  border: 1px solid #ccc;  background-color: #f1f1f1;    border-radius:8px;height:50px;  margin:auto;  margin-top:30px;">
+</div>
+<div  style="width:100%;  text-align:center;  border: 1px solid #ccc;  background-color: #f1f1f1;  border-radius:8px;  margin:auto;margin-top:30px;  height:100px;">
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div  style="
+width:50%;
+  text-align:center;
+border: 1px solid #ccc;
+background-color: #f1f1f1;
+border-radius:8px;
+height:700px;
+margin:auto;
+margin-top:30px;
+
+  ">
+    <p style="text-align:center;font-size:15px;" >الصورة التوضيحية</p>
+  <small class="help-text">{{ form.long_image.help_text }}</small>
+{{ form.long_image  }}
+</div>
+
+
+<div  style=" width:100%;
+
+
+height:250px;
+margin-top:30px;
+
+
+  ">
+<h1>how to use</h1>
+<div style="width: 30%; border-radius: 30px; margin-right: 2%; height: 500px;    float: right;">
+
+<div style="width: 100%; height: 200px; border: 1px solid #ccc; background-color: #f1f1f1; border-radius: 8px; height: 200px; float: right;"></div>
+
+<div style="width: 100%;margin-top: 20px; height: 50px; border: 1px solid #ccc; background-color:#f1f1f1;  border-radius: 8px;  float: right;"></div>
+
+<div style="width: 100%;margin-top: 10px; height: 100px; border: 1px solid #ccc; background-color:#f1f1f1;  border-radius: 8px;  float: right;"></div>
+
+ </div>
+
+ <div style="width: 30%; border-radius: 30px; margin-right: 2%; height: 500px;    float: right;">
+
+ <div style="width: 100%; height: 200px; border: 1px solid #ccc; background-color: #f1f1f1; border-radius: 8px; height: 200px; float: right;"></div>
+
+ <div style="width: 100%;margin-top: 20px; height: 50px; border: 1px solid #ccc; background-color:#f1f1f1;  border-radius: 8px;  float: right;"></div>
+
+ <div style="width: 100%;margin-top: 10px; height: 100px; border: 1px solid #ccc; background-color:#f1f1f1;  border-radius: 8px;  float: right;"></div>
+
+
+  </div>
+  <div style="width: 30%; border-radius: 30px; margin-right: 2%; height: 500px;    float: right;">
+
+  <div style="width: 100%; height: 200px; border: 1px solid #ccc; background-color: #f1f1f1; border-radius: 8px; height: 200px; float: right;"></div>
+
+  <div style="width: 100%;margin-top: 20px; height: 50px; border: 1px solid #ccc; background-color:#f1f1f1;  border-radius: 8px;  float: right;"></div>
+
+  <div style="width: 100%;margin-top: 10px; height: 100px; border: 1px solid #ccc; background-color:#f1f1f1;  border-radius: 8px;  float: right;"></div>
+
+
+   </div>
+
+
+
+
+
+</div>
+
+
+<div style="width: 100%;    float: right;">
+  <small class="help-text">{{ form.is_active.help_text }}</small>
+{{ form.is_active  }}
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    <style media="screen">
+
+      .btn_submit {
+        position:fixed;
+        bottom:5px;
+       background-color:#01b67a !important;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 200px;
+      left:100px;
+    }
+    </style>
+
+      <button class="btn_submit" type="submit">Save</button>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

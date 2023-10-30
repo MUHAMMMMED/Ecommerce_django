@@ -1,0 +1,96 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+  <style>
+  form {    border-radius: 5px;  }
+   .container {border-radius: 5px;  padding: 20px;  background-color: #fff;    }
+  input[type=text], input[type=submit] {  width: 100%;  padding: 12px;  margin: 8px 0;display: inline-block;  border: 2px solid #000;    box-sizing: border-box;}
+  input[type=text], input[type=number], select, textarea {    width: 100%;    padding: 12px;   border: 2px solid #000;border-radius: 4px;  box-sizing: border-box;  margin-top: 6px; margin-bottom: 16px; resize: vertical;  }
+  input[type=checkbox] {  margin-top: 16px;    }
+  input[type=submit] {       background-color: #01b67a !important;
+ color: white;  border: none;  }
+  input[type=submit]:hover {    opacity: 0.8;  }
+  input[type="file"] {  display: inline-block;  font-size:20px;   border-radius: 50px;  cursor: pointer;  text-align: center;  }
+  input[type="file"]:hover {    background-color: #000;  }
+  .help-text {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+  </style>
+
+
+
+    <section style=" width:70%;margin:auto;">
+
+{{ form.media }}
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="container">
+            <div style="width: 100%; text-align: center; border-radius: 8px; height: 100px; margin-bottom: 50px;">
+              <div style="width: 100%; margin: auto; border: 1px solid #ccc; height: 100px; background-color: #f1f1f1;">
+                <small class="help-text">{{ form.Image.help_text }}</small><br>
+                {{ form.Image }}
+              </div>
+            </div>
+            <div style="width: 100%; text-align: center; border: 1px solid #ccc; background-color: #f1f1f1; border-radius: 8px; height: 100px;">
+              <h1 style="text-align: center; font-size: 15px;"> {% translate "صوره الغلاف" %}</h1>
+              <small class="help-text">{{ form.slideImage.help_text }}</small><br>
+
+              {{ form.slideImage }}
+             </div>
+            <div style="width: 100%; text-align: center; border: 1px solid #ccc; background-color: #f1f1f1; border-radius: 8px; height: 100px; margin: auto; margin-top: 30px;">
+              <h1 style="text-align: center; font-size: 15px;"> {% translate "فيديو الغلاف" %}</h1>
+              <small class="help-text">{{ form.slideVideo.help_text }}</small><br>
+              {{ form.slideVideo }}
+            </div>
+            <br><br><br>
+            <small class="help-text">{{ form.category.help_text  }}</small><br>
+            {{ form.category }}
+            <small class="help-text">{{ form.keywords.help_text }}</small><br>
+            {{ form.keywords }}
+            [ar]: {{ form.keywords_ar}}
+            [en]: {{ form.keywords_en }}      <br><br>
+            <small class="help-text">{{ form.Titel.help_text }}</small><br>
+            {{ form.Titel }}
+            [ar]: {{ form.Titel_ar}}
+            [en]: {{ form.Titel_en }}
+            <br><br>
+            <small class="help-text">{{ form.description.help_text }}</small><br>
+
+            {{ form.description }}
+            [ar]: {{ form.description_ar}}
+            [en]: {{ form.description_en }}
+
+            <small class="help-text">{{ form.body.help_text }}</small><br>
+
+
+           {{ form.body.media }}
+           {{ form.body }}
+
+           [ar]: {{ form.body_ar.media }}
+           {{ form.body_ar }}
+
+           [en]: {{ form.body_en.media }}
+           {{ form.body_en }}
+
+
+
+            <small class="help-text">{{ form.active.help_text }}</small><br>
+
+            {{ form.active }}
+          </div>
+          <input type="submit" class="btn_submit" value="{% translate "حفظ" %}">
+        </form>
+
+
+
+
+
+
+    </section>
+
+{% endblock %}

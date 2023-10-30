@@ -1,0 +1,41 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+  <style>
+  form {    border-radius: 5px;  }
+   .container {border-radius: 5px;  padding: 20px;  background-color: #fff;    }
+  input[type=text], input[type=submit] {  width: 100%;  padding: 12px;  margin: 8px 0;display: inline-block;  border: 2px solid #000;    box-sizing: border-box;}
+  input[type=text], input[type=number], select, textarea {    width: 100%;    padding: 12px;   border: 2px solid #000;border-radius: 4px;  box-sizing: border-box;  margin-top: 6px; margin-bottom: 16px; resize: vertical;  }
+  input[type=checkbox] {  margin-top: 16px;    }
+  input[type=submit] {       background-color: #01b67a !important;
+  color: white;  border: none;  }
+  input[type=submit]:hover {    opacity: 0.8;  }
+  input[type="file"] {  display: inline-block;  font-size:20px;   border-radius: 50px;  cursor: pointer;  text-align: center;  }
+  input[type="file"]:hover {    background-color: #000;  }
+  .help-text {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+  </style><section style=" width:70%;margin:auto;">
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="container">
+<div style="width: 100%; text-align: center; border-radius: 8px; height: 100px; margin-bottom: 50px;">
+<div style="width: 49%; margin: auto; border: 1px solid #ccc; height: 100px; background-color: #f1f1f1;">
+<small class="help-text">{{ form.Image.help_text }}</small>{{ form.Image }}</div></div>
+<small class="help-text">{{ form.title.help_text }}</small>
+{{ form.title }}
+[ar]: {{ form.title_ar}}
+[en]: {{ form.title_en }}
+<br><br>
+<small class="help-text">{{ form.description.help_text }}</small>
+{{ form.description }}
+[ar]: {{ form.description_ar}}
+[en]: {{ form.description_en }}
+</div>
+<input type="submit" class="btn_submit" value="{% translate "حفظ" %}"></form>
+</section>
+
+{% endblock %}

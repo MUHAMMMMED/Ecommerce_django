@@ -1,0 +1,63 @@
+{% extends "Base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<section style="width:70%;margin:auto;">
+  <style media="screen">
+    /* CSS Styles for question_list.html */
+    .question-card { border: 1px solid #ccc;padding: 10px; width:100%; margin-bottom: 20px; margin:auto; }
+    .button-group {margin-top: 10px; margin:auto;  }
+    .button-group .btn {  margin-right: 5px;}
+    /* CSS Styles for Arabic translation */
+    body[dir="rtl"] {font-family: 'Helvetica', sans-serif;}
+    .question-card {  text-align: right;border-color: #ccc;}
+    .button-group .btn {margin-right: 0;margin-left: 5px;}
+    /* Custom button styles */
+    .btn {   display: inline-block;  padding: 8px 16px;  font-size: 14px;  font-weight: bold;  text-decoration: none;  cursor: pointer;  border-radius: 4px;  transition: background-color 0.3s ease;}
+    .btn-primary { color: #fff;background-color: #007bff;border: none;    }
+    .btn-primary:hover {  background-color: #0056b3;  }
+    .btn-success { color: #fff;  background-color: #28a745;  border: none;  }
+    .btn-success:hover {background-color: #1f813e;  }
+  </style>  <br>  <br>
+
+<h1>{% trans 'صور شريط التمرير' %}</h1>
+
+  {% if slide %}
+  {% else %}
+<div class="button-group">  <br>
+<a href="{% url 'Dashboard:create_slide' %}" class="btn btn-success">{% trans 'إنشاء' %}</a></div>
+{% endif %}
+{% for slide in slide %}
+<div class="question-card">
+  {% if slide.top_slider_web %}
+  <img src="{{ slide.top_slider_web.url }}"   style=" width:100%; border: 1px solid #ccc;">
+  {% endif %}
+  {% if slide.top_slider_mobile %}
+  <img src="{{ slide.top_slider_mobile.url }}"    style="  width:100%; border: 1px solid #ccc;margin-top: 10px;">
+  {% endif %}
+<div class="button-group"><br><br>
+<a href="{% url 'Dashboard:update_slide' slide.id %}"
+class="genric-btn success-border"
+style ="
+width:50%; margin:auto;   text-decoration: none;
+display: block;  padding: 10px 20px;
+border: 1px solid #00874c;
+border-radius: 4px;
+color: #00874c;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;"
+ >{% trans 'تحديث' %}</a><br>
+<a href="{% url 'Dashboard:delete_slide' slide.id %}"
+class="genric-btn success-border"
+style ="
+width:50%; margin:auto;
+ text-decoration: none;
+display: block;  padding: 10px 20px;
+border: 1px solid red;
+border-radius: 4px;
+color: red;
+text-align: center;
+transition: background-color 0.3s, color 0.3s;" >{% trans 'حذف' %}</a>
+<br></div></div><br>
+{% empty %}<p>{% trans 'لا توجد صور متاحة.' %}</p>{% endfor %}</section>
+{% endblock %}
