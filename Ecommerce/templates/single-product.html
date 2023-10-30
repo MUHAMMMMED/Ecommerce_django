@@ -1,0 +1,534 @@
+{% extends "BaseGeneric.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<script>
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+      } else {
+        video.pause();
+        btn.innerHTML = "Play";
+      }
+    }
+    </script>
+<style>
+#Videomobil{ display: none;}
+#Videoweb{display: block;  }
+.Table{width: 80%;margin:0;}
+.butbuy{display: none;width: 100%;  padding:15px;}
+@media (max-width: 768px) {
+.butbuy{display: block;width: 100%;  padding:15px;}
+.checkout-button {bottom:175px;right: 5px;z-index: 100;  }
+#Videomobil{display: block;  }
+#Videoweb{ display: none;}
+.float-button { bottom: 110px;   right:5px;}
+.title{ text-align: center;   color: #000;  margin-top: 0px;font-size: 10px;/*    font-weight: 700;*/  /* font-weight: bold; */  }
+#customers {font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; /* right: 10%; */  background: #fff;    }
+.Table{  width: 90%;  margin: auto; }
+.qus{display: none;}
+.COntainer { display: flex; align-items: center; padding:3px; border: 1px solid #222; text-align: center;border-radius: 3px;  display: inline-block;  }
+.quantity-control       display: flex;      align-items: center;      border-radius: 15px;  overflow: hidden;  }
+.quantity-btn { padding: 8px 8px; background-color: #fff;color: #222;border: none; cursor: pointer; font-size: 23px;  font-weight: bold;  }
+ .quantity-input {  background: transparent;  border: none;  border-radius: 0;color: #222;  width: 40px;  padding: 0;  height: 35px;  font-size: 23px;  text-align: center;  font-weight: bold;    }
+.new-form-atc { width: 90%; margin: auto; cursor: pointer; background-color: #01b67a !important; color: #000; border-radius: 0px; text-align: center; font-size: 1.3em; margin-top: 10px;margin-bottom: 15px;padding: 5px 0 5px 0;font-weight: bold;  }
+  }  </style>  <style>
+
+* {box-sizing: border-box;  }
+img {  vertical-align: middle;  }
+/* Position the image container (needed to position the left and right arrows) */
+.ContaineR { position: relative;  width: 49%;float: right;   }
+@media screen and (max-width: 650px) {
+.ContaineR {width: 98%; margin: auto;  }}
+/* Hide the images by default */
+.mySlides {  display: none;  }
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {  cursor: pointer;  }
+/* Next & previous buttons */
+.prev,.next { cursor: pointer;  position: absolute;  top: 30%;  width: auto;  padding: 6px;  margin-top: -50px;  color: #000;  font-weight: bold;  font-size: 20px;  <!-- border-radius: 0 3px 3px 0; -->  user-select: none;  -webkit-user-select: none;}
+/* Position the "next button" to the right */
+.next { <!-- margin-top:110px; --> right: 0;border-radius:100px;  background-color: #fff;  }
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {  background-color: rgba(0, 0, 0, 0.8);color:#fff;  }
+/* Number text (1/3 etc) */
+.numbertext {color: #f2f2f2;  font-size: 12px;  padding: 8px 12px;position: absolute;top: 0;  }
+/* Container for image text */
+.caption-container { text-align: center; background-color: #222;padding: 2px 16px;color: white;}
+.ROW  {content: "";display: table;  clear: both;  }
+/* Six columns side by side */
+.column {    float: left;  width: 16.66%;    }
+/* Add a transparency effect for thumnbail images */
+.demo {  opacity: 0.6;  }
+.active,.demo:hover {  opacity: 1;    }
+.iamges {width:80%;margin: auto;  }
+.mySlides{}
+@media screen and (max-width: 650px) {
+.iamges {  width:90%;margin: auto;  }
+.mySlides{  width:100%;  margin: auto;  }
+.ROW{  width:100%;margin: auto;  }
+.next {    top: 50%;}
+</style>    <style>
+.qus{   width: 80%;margin: auto;  }
+.accordion {background-color: #fff;color: #444;cursor: pointer;  padding: 10px;width: 100%;  border: none;  text-align: right;  outline: none; font-size: 15px;  transition: 0.4s;border: 1px solid #eee;margin-top:12px;  border-radius: 8px;    }
+.Active, .accordion:hover {  background-color: #ebe9e9;  }
+.panel {  padding: 0 18px;  display: none;  background-color: white;  overflow: hidden;  text-align: right;  padding:15px ;  }
+</style><style type="text/css">
+.inf{width:99%;margin: auto;  font-size: 18px;}
+@media screen and (max-width: 650px) {
+.inf{  width:99%;margin: auto;  }
+.customers{  width:99%;  margin: auto;  }
+.TR{    width:95%;  margin: auto;    text-align: right;  }
+}</style><style>
+#customers {  font-family: Arial, Helvetica, sans-serif;  border-collapse: collapse;  width: 100%;  }
+#customers td, #customers th { padding: 8px; text-align: right;  color: #6d6d6d; border: none;  border-bottom: 1px solid #eee; font-weight: inherit;  }
+#customers th { padding-top: 12px; padding-bottom: 12px; text-align: left;  background-color: #fff;  color: #6d6d6d; text-align: right;  }
+</style>  <style type="text/css">
+.title{    text-align: right;  color: #000;  margin-top: 5px;padding:  20px 0px 20px 0px;  font-size: 20px;  }
+.product-price { font-weight: bold; font-size: 25px;color: #01b67a !important  }
+.crossed-price-WB { font-weight: 700; color: #ccc;  text-decoration: line-through !important;  }
+.des{    margin-top: 15px;  background-color: #fff;  color: #6d6d6d;  text-align: right;  }
+</style>   <style>
+.COntainer { display: flex;align-items: center;padding:3px;  border: 1px solid #222;  text-align: center;  border-radius: 3px;  display: inline-block;margin-left: 12px;  }
+.quantity-control { display: flex;align-items: center;  border-radius: 15px;  overflow: hidden;  }
+.quantity-btn { padding: 8px 8px;background-color: #fff;  color: #222;   border: none;  cursor: pointer;  font-size: 23px;  font-weight: bold;  }
+.quantity-input { background: transparent;border: none;border-radius: 0;color: #222;  width: 40px;  padding: 0;  height: 35px;  font-size: 23px;text-align: center;font-weight: bold;  }
+.new-form-atc { width: 90%;  margin: auto;  cursor: pointer;  background-color: #01b67a !important;  color: #000000;border-radius: 0px;text-align: center;font-size: 1em; margin-top: 12px;margin-bottom: 15px;    padding: 14px 0 14px 0;  font-weight: bold;  }
+.WEB { display: block; width: 100%; }
+/*.MOBIL { display: none; }*/  .Iframe{ display:  block; width: 100%;}
+.iframevideo{   width:100%;height: 330px}
+@media screen and (max-width: 650px) {
+/*  .MOBIL { display: block; width: 100%; }*/
+.WEB { display: none; }
+/*  .Iframe{ display: none; }*/  }
+</style>
+
+ {% if iteM.top_slider_web %}
+<section style=" width: 100%;  margin-top:0px; float:right; "  >
+ {% if iteM.top_slider_web %}<img src="{{iteM.top_slider_web.url}}"  class="respon">
+ {% endif %} {% if iteM.top_slider_mobile %}<img src="{{iteM.top_slider_mobile.url}}"  class="respon_MOBIL">{% endif %}</section>{% endif %}
+
+ {% if iteM.top_slider_video %}
+<section  style="width:100%;  ">
+<video   autoplay muted loop id="Videoweb" style="border-radius:10px;width: 100%; height: 450px; margin:auto;" >
+<source src="{{iteM.top_slider_video}}" type="video/mp4"></video>
+<video   autoplay muted loop id="Videomobil" style="border-radius:10px;width:300px; height: 300px;margin:auto; " >
+<source src="{{iteM.top_slider_video}}" type="video/mp4"></video>
+</section>{% endif %}
+
+{% if iteM.video_link1 %}
+<section  style="width:100%;">
+<h1 class="title"  style="text-align: center;">{{ItemText.howitـworks}}</h1><br>
+<video   autoplay muted loop id="Videoweb" style="border-radius:10px;width:450; height: 450px;margin:auto;" >
+<source src="{{iteM.video_link1}}" type="video/mp4"></video>
+<video   autoplay muted loop id="Videomobil" style="border-radius:10px;width:300px; height: 300px;margin:auto; " >
+<source src="{{iteM.video_link1}}" type="video/mp4"></video></section>{% endif %}
+
+<section style="width:100%; float: left; margin-top: 50px;">
+<div class="ContaineR"><br><div class="iamges">
+{% if iteM.Image1 %}<div class="mySlides">
+<img src="{{iteM.Image1.url}}" style="width:100%"></div>{% endif %}
+{% if iteM.Image2 %}<div class="mySlides">
+<img src="{{iteM.Image2.url}}" style="width:100%"></div>{% endif %}
+{% if iteM.Image3 %}<div class="mySlides">
+<img src="{{iteM.Image3.url}}" style="width:100%"></div>{% endif %}
+{% if iteM.Image4 %}<div class="mySlides">
+<img src="{{iteM.Image4.url}}" style="width:100%"></div>{% endif %}
+{% if iteM.Image5 %}<div class="mySlides">
+<img src="{{iteM.Image5.url}}" style="width:100%">
+</div>{% endif %}{% if iteM.Image6 %}<div class="mySlides">
+<img src="{{iteM.Image6.url}}" style="width:100%"></div>{% endif %}
+{% if iteM.Image1 %}<a class="next" onclick="plusSlides(1)">❮</a>{% endif %}
+<br><div class="ROW">{% if iteM.Image1 %}
+<div class="column">
+<img class="demo cursor" src="{{iteM.Image1.url}}" style="width:100%" onclick="currentSlide(1)" ></div>{% endif %}
+{% if iteM.Image2 %}
+<div class="column"><img class="demo cursor" src="{{iteM.Image2.url}}" style="width:100%" onclick="currentSlide(2)"  ></div>{% endif %}
+{% if iteM.Image3 %}<div class="column">  <img class="demo cursor" src="{{iteM.Image3.url}}" style="width:100%" onclick="currentSlide(3)" ></div>{% endif %}
+{% if iteM.Image4 %}<div class="column"><img class="demo cursor" src="{{iteM.Image4.url}}" style="width:100%" onclick="currentSlide(4)"  ></div>{% endif %}
+{% if iteM.Image5 %}<div class="column"><img class="demo cursor" src="{{iteM.Image5.url}}" style="width:100%" onclick="currentSlide(5)"  >
+</div>{% endif %}{% if iteM.Image6 %}
+<div class="column"><img class="demo cursor" src="{{iteM.Image6.url}}" style="width:100%" onclick="currentSlide(6)"  ></div>{% endif %}
+</div>  </div>{% if iteM.video_link2%}
+<div class="qus"><br><br><div class="Iframe">
+<iframe class="iframevideo" src="https://www.youtube.com/embed/{{iteM.video_link2}}?autoplay=1" allow="autoplay"></iframe>
+</div></div>{% endif %}</div>
+
+
+<div class="ContaineR">
+<div class="inf">
+<h1 class="title">{{iteM.title}}</h1>
+<h1 class="product-price" style="width:100%;text-align:right;">  {{iteM.price}}  {{BaseTextT.currency}}
+ </h1><br>
+<div><p class="des"> {{iteM.description_short}}</p></div>
+<p style="text-align: right; margin-top: 15px;   color: #01b67a !important"> {{ItemText.Buyـmore}} </p>
+<div class="Table">
+<table id="customers">
+
+
+
+{% if iteM.discount_price1  %}
+<tr><th>{{ItemText.Quantity}}</th><th>{{ItemText.discount}} </th><th>  {{ItemText.price}} </th></tr>
+{% endif %}
+{% if iteM.discount_price1  %}
+<tr><td>{{iteM.quantity1}}  - {{iteM.quantity2}}</td>
+<td>{% if iteM.discount_price1 is None %}0%{% else %}{{ iteM.discount_price1 }}%   {% endif %} </td>
+<td style="color: #000;"> {{discounted_price1}} {{BaseTextT.currency}} </td></tr>{% endif %}
+
+{% if iteM.discount_price2  %}
+<tr><td>{{iteM.quantity2}} - {{iteM.quantity3}}</td>
+<td>{% if iteM.discount_price2 is None %}0 %{% else %}{{ iteM.discount_price2 }}%   {% endif %}</td>
+<td style="color: #000;"> {{discounted_price2}} {{BaseTextT.currency}} </td></tr>{% endif %}
+{% if iteM.discount_price2  %}
+<tr><td> {{iteM.quantity3}}+</td><td>
+{% if iteM.discount_price3 is None %}0%{% else %}{{ iteM.discount_price3 }}%   {% endif %}
+</td><td style="color: #000;">{{discounted_price3}} {{BaseTextT.currency}} </td></tr>{% endif %}
+
+<tr><td > {{ItemText.Category}}</td><td>{% if iteM.category_id is None %} {{ItemText.Notـavailable}} {% else %}{{ iteM.category_id }}    {% endif %}  </td></tr>
+</table><div class="WEB"><table class="WEB">
+<tr><td style="border-bottom: 0px solid #eee;">
+<div class="COntainer">
+<button id="increaseBtn" class="quantity-btn" style="border-radius: 0px 15px 15px 0px;">+</button>
+<input type="number" id="quantityInput" name="quantity" value="1" min="0" max="1000" class="quantity-input" style="padding-right:5px;">
+<button id="decreaseBtn" class="quantity-btn" style="border-radius: 15px 0px 0px 15px; font-size: 28px;">-</button>
+</div></td>
+<td style="border-bottom: 0px solid #eee; width: 60%;">
+<form id="add-to-cart-form" method="POST">    {% csrf_token %}
+<button type="submit" class="new-form-atc"> {{ItemText.Addـtoـcart}}  </button>
+</form></td> </tr></table>
+
+</div>
+<br><br><br><br>
+<style >
+ .QUes{width:50%: margin:auto; }
+
+</style>
+
+
+<section class="QUes">
+{% if iteM.questions.all %}
+<br><br><br>
+<h3 style="text-align: center; margin-top: 15px;"> {{ItemText.questionsanswered}}</h3>
+<button class="accordion"><div style="width:80%;float:right;"> {{ItemText.description}} </div>
+<div style="width:20%;float:right; text-align: left;"><i style='font-size:24px' class='fas'>&#xf0d7;</i></div></button>
+<div class="panel"><p>{{iteM.description_long}}</p></div>
+{% if iteM.questions.all %}
+{% for question in iteM.questions.all %}
+<button class="accordion">
+<div style="width:80%;float:right;"> {{question.question}}</div>
+<div style="width:20%;float:right; text-align: left;"><i style='font-size:24px' class='fas'>&#xf0d7;</i></div></button>
+<div class="panel"><p>{{question.answer}}</p></div>
+
+
+
+{% endfor %}
+
+
+{% endif %}
+</section>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+ <script>
+   document.addEventListener("DOMContentLoaded", function() {
+     const increaseBtn = document.getElementById("increaseBtn");
+     const decreaseBtn = document.getElementById("decreaseBtn");
+     const quantityInput = document.getElementById("quantityInput");
+     const addToCartForm = document.getElementById("add-to-cart-form");
+     increaseBtn.addEventListener("click", () => {
+       quantityInput.value = parseInt(quantityInput.value) + 1;
+     });
+
+     decreaseBtn.addEventListener("click", () => {
+       const currentValue = parseInt(quantityInput.value);
+       if (currentValue > 0) {
+         quantityInput.value = currentValue - 1;
+       }
+     });
+
+     addToCartForm.addEventListener("submit", function(e) {
+       e.preventDefault(); // Prevent the default form submission
+
+       const itemId ='{{ iteM.id }}'; // Get the item ID from the hidden input field
+       const quantity = parseInt(quantityInput.value);
+       const url = '{% url "Ecommerce:Add_to_cart" 0 %}'.replace('0', itemId);
+       // alert(itemId);
+       // alert(quantity);
+
+       const csrfToken = '{{ csrf_token }}';
+       const formData = new FormData();
+       formData.append('csrfmiddlewaretoken', csrfToken);
+       formData.append('quantity', quantity);
+
+       fetch(url, {
+         method: 'POST',
+         body: formData
+       })
+         .then(function(response) {
+           return response.json();
+         })
+         .then(function(data) {
+           console.log('AJAX request successful:', data);
+           document.querySelector('.cart-item-count').textContent = data.cart_item_count;
+           showMessage(data.message, 3000); // Display success message for 3 seconds
+         })
+         .catch(function(error) {
+           console.log('AJAX request error:', error);
+         });
+     });
+   });
+ </script>
+
+</div>
+</section >
+
+<section class="butbuy">
+<style media="screen">
+.button_bay {  width: 150px; margin: auto; cursor: pointer; background-color: #01b67a !important; color: #000000; border-radius: 0px; text-align: center;  font-size: 1em;  margin-top: 12px;  margin-bottom: 15px;  padding: 14px 0 14px 0;font-weight: bold;  }
+</style>
+<h5 style="text-align:center;"><button class="button_bay" data-id="{{ iteM.id }}"> {{ItemText.Addـtoـcart}} </button>  </h5>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.button_bay').click(function() {
+      var itemId = $(this).data('id');
+      var url = '{% url "Ecommerce:go_to_cart" 0 %}'.replace('0', itemId);
+      var csrfToken = '{{ csrf_token }}';
+      $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: 'json',
+        data: {'csrfmiddlewaretoken': csrfToken},
+        success: function(data) {
+          window.location.href = '{% url "Ecommerce:Orderitem" %}'; // Redirect the user to the checkout page
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          console.log('AJAX request error:', errorThrown);
+        }
+      });
+    });
+  });
+</script>
+<div  >  <p class="des"> </p></div>
+
+
+ <br>
+
+
+<style>
+div.gallery img { width: 100%;height: auto;}
+div.desc {text-align: center;}
+* { box-sizing: border-box;}
+
+.responsive { padding: 0 6px; float: right; width: 33%;}
+@media only screen and (max-width: 700px) {
+ .responsive {width: 49.99999%; margin: 6px 0; }}
+@media only screen and (max-width: 500px) {
+ .responsive { width: 100%; }}
+.clearfix:after { content: ""; display: table; clear: both;}
+</style>
+
+
+
+<section style="float: right;width:100%;">
+<div  style="width:80%;margin:auto;">
+ <br><br><h2 style="   text-align: center;">{{ItemText.make_purchase}}  </h2><br><br>
+
+<div class="responsive">
+<div class="gallery">
+<img src="{% static 'img/bay.png' %}" alt="" width="600" height="400">
+<div class="desc">  <br><h2>{% translate "1. إكمال عملية الشراء" %}  </h2>
+  {% translate " بعد مراجعة السلة، يقوم العميل بإكمال عملية الشراء من خلال إدخال بياناته الشخصية وعنوان الشحن وطريقة الدفع." %}
+</div> </div></div>
+
+<div class="responsive">
+<div class="gallery">
+<img src="{% static 'img/massage.png' %}" alt="" width="600" height="400">
+ <div class="desc"> <br><h2>
+   {% translate "2.مرحلة التواصل لتفعيل" %}  </h2>
+
+ {% translate "يتم التواصل مع العميل لإضافة بياناته داخل الكارت،  يتم إجراء هذا التحقق لضمان صحة البيانات ووصول الشحنة إلى العميل بشكل صحيح." %}
+</div> </div></div>
+<div class="responsive">
+<div class="gallery">
+<img src="{% static 'img/delivery.png' %}" alt="" width="600" height="400">
+ <div class="desc">  <br><h2>{% translate "3.مرحلة الشحن " %}   </h2>
+   {% translate "يتم تسليم المنتجات إلى العميل بواسطة شركة الشحن" %}
+
+</div> </div></div> </div>
+</section>
+
+{% if iteM.long_image %}
+<section style="width:90%;margin:auto'">
+<img src="{{iteM.long_image.url}}" alt="{{How.title}}" style="width:100%; ">
+</section>
+<section class="butbuy" style="width:100%;display:black; ">
+<style media="screen">
+.button_bay {  width: 150px;  margin: auto;cursor: pointer; background-color: #01b67a !important; color: #000;border-radius: 0px; text-align: center; font-size: 1em;margin-top: 12px;  margin-bottom: 15px;  padding: 14px 0 14px 0;  font-weight: bold;  }
+</style><h5 style="text-align:center; ">
+<button class="button_bay" data-id="{{ iteM.id }}">  {{ItemText.Addـtoـcart}} </button>  </h5>
+</section>{% endif %}
+
+{% if iteM.howitwork.all %}
+<section style="width:100%; float: right; ">
+<br> <br>
+<div style="width:80%;margin:auto; padding-top:15px;  "><br> <br>
+<h2 style="text-align: center;">  {{ItemText.howitـworks}}
+ </h2><br><br>
+
+
+
+
+
+{% for How in iteM.howitwork.all %}
+<div class="responsive">
+<div class="gallery">{% if How.Image %}
+<img src="{{How.Image.url}}" alt="{{How.title}} " width="600" height="400">{% endif %}
+ <div class="desc">
+<h2>{{How.title}}</h2>{{How.description}} </div>  </div></div> {% endfor %} </div>
+</section>{% endif %}
+
+
+<section style="float: left;">
+<style type="text/css">
+.navbar {  overflow: hidden;  background-color: #fff;  position: fixed;z-index: 150; bottom: 0; right: 0; width: 100%;  display: none;}
+@media screen and (max-width: 650px) {.navbar{display: block;}}
+@media (max-width: 768px) {
+.mContainer { float:left;display: flex;align-items: center;  padding:3px;  /* border: 3px solid #222; */text-align: center; display: inline-block;/* border-radius:5px; */  margin-left: 15px;/* height: 70px; */}
+.mquantity-control {  display: flex;  align-items: center;  border-radius: 15px;  overflow: hidden;}
+.mquantity-btn {  /* padding: 8px ; */  background-color: #ddd;  color: #222;  border: none;  cursor: pointer;  font-size: 22px;  font-weight: bold;  border-radius: 50px;  /* padding:12px 14px  14px  12px  ; */  width: 50px;  height: 50px;}
+.mquantity-input {    background: transparent;    border: none;    border-radius: 0;    color: #222;   width: 40px;padding: 0;  height: 35px;font-size: 23px;  text-align: center;font-weight: bold;}
+.mnew-form-atc {    width: 90%;    margin: auto;    cursor: pointer;    background-color: #01b67a !important;    color: #000000;    border-radius: 0px;    text-align: center;    font-size: 1.3em;    margin-top: 10px;   margin-bottom: 15px;    padding: 13px 0 13px 0;  font-weight: bold; border-radius:5px;}}
+</style>
+<div class="navbar" >
+<div style="width:100%;  margin:auto;">
+ <div style="width: 45%; float: right; margin-top: 8px; margin-right: 15px;">
+<div class="mContainer">
+<button id="increaseBtn2" class="mquantity-btn">+</button>
+<input type="number" id="quantityInput2" value="1" min="0" max="1000" class="mquantity-input" style="padding-right: 5px;">
+<button id="decreaseBtn2" class="mquantity-btn" style="font-size: 29px;">-</button></div> </div>
+ <div style="width: 45%; float: right;"><button type="submit" class="mnew-form-atc">  {{ItemText.Addـtoـcart}} </button> </div>
+</section > </section >
+ <script>
+   document.addEventListener("DOMContentLoaded", function() {
+     const increaseBtn2 = document.getElementById("increaseBtn2");
+     const decreaseBtn2 = document.getElementById("decreaseBtn2");
+     const quantityInput2 = document.getElementById("quantityInput2");
+     const addToCartButton = document.querySelector(".mnew-form-atc");
+
+     increaseBtn2.addEventListener("click", () => {
+       quantityInput2.value = parseInt(quantityInput2.value) + 1;
+     });
+
+     decreaseBtn2.addEventListener("click", () => {
+       const currentValue2 = parseInt(quantityInput2.value);
+       if (currentValue2 > 0) {
+         quantityInput2.value = currentValue2 - 1;
+       }
+     });
+
+     addToCartButton.addEventListener("click", function(e) {
+       e.preventDefault();
+       const itemId = '{{ iteM.id }}';
+       const quantity2 = parseInt(quantityInput2.value);
+       const url = '{% url "Ecommerce:Add_to_cart" 0 %}'.replace('0', itemId);
+
+       const csrfToken = '{{ csrf_token }}';
+       const formData = new FormData();
+       formData.append('csrfmiddlewaretoken', csrfToken);
+       formData.append('quantity', quantity2);
+
+       fetch(url, {
+         method: 'POST',
+         body: formData
+       })
+         .then(function(response) {
+           return response.json();
+         })
+
+         .then(function(data) {
+           console.log('AJAX request successful:', data);
+           document.querySelector('.cart-item-count').textContent = data.cart_item_count;
+           refreshCartItemCount();
+           showMessage(data.message, 3000); // Display success message for 3 seconds
+         })
+         .catch(function(error) {
+           console.log('AJAX request error:', error);
+         });
+     });
+   });
+
+ </script>
+
+  <script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("Active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+  </script>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+
+    setInterval(function () {
+      plusSlides(1);
+    }, 3000);
+  </script>
+
+
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "BaseGeneric.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+{% if slide.top_slider_web %}
+<section  >
+<img src="{{slide.top_slider_web.url}}"  class="respon">{% endif %}
+{% if slide.top_slider_mobile %}
+ <img src="{{slide.top_slider_mobile.url}}"  class="respon_MOBIL">
+</section>{% endif %}
+<section style="width: 80%;margin: auto; ">
+<style media="screen">
+.Title{  width:100%;  text-align:right; font-size: 26px;  color: #1a1a1a;  font-weight: 700;  font-weight: 700;  position: relative;  margin-bottom: 28px;  margin-right:15px;  margin-top:23px; }
+.asksection{width: 50%;margin: auto;  padding-top:20px;}
+@media (max-width: 768px) {
+.Title{ text-align: center; color: #000;  margin-top: 0px;  font-size: 15px;  }
+.asksection{width: 90%;margin: auto;}
+}
+</style><style>
+div.gallery {  border: 0px solid #ccc;}
+div.gallery img {  width: 100%;  border-radius: 15px 15px 0px 0px ;  height: auto;}
+div.gallery img :hover{opacity: 0.7;}
+div.desc {  padding: 10px;  text-align: center;}
+* {  box-sizing: border-box;}
+.responsive { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);  margin-top: 15px;   margin: 10px;  float: right;  width:18%;  border-radius: 15px ;}
+.responsive:hover{box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;}
+@media only screen and (max-width: 700px) {  .responsive {  width: 49.99999%;  margin: 6px 0;}}
+@media only screen and (max-width: 500px) {  .responsive {width: 100%;  }}
+.clearfix:after {  content: "";display: table;  clear: both;}
+</style>
+<h1 class="Title" >  {{BaseTextT.help_categories}}</h1>
+{% for category in category %}
+<a class="link-without-color" href="{% url 'Ecommerce:Category' category.slug %}">
+<div class="responsive"><div class="gallery">
+{% if category.Image %}<img src="{{ category.Image.url }}" alt="{{ category.title }}" width="600" height="400">{% endif %}
+<h3  style="text-align:center;padding-top: 5px;">{{ category.title }}</h3>   <div class="desc">
+  <!-- <span class="count">6</span> products  -->
+</div> </div></div></a>
+ {% endfor %}</section>
+<section  class="asksection"  >
+<style>
+.qus{ width: 100%;margin: auto;}
+.accordion {  background-color:#fff;  color: #444;  cursor: pointer;  padding: 10px;  width: 100%;  border: none;  text-align: right;  outline: none;  font-size: 15px;  transition: 0.4s; border: 1px solid #eee; margin-top:12px;  border-radius: 8px;}
+.Active,.accordion:hover {  background-color: #ebe9e9;}
+.panel {  padding: 0 18px;  display: none;  background-color: white;  overflow: hidden;text-align: right;padding:15px ;}
+</style>
+
+{% if questionsgeneral %}
+
+<div ><br><br><br>
+  <div style=" width: 100% ;float:right;"><br><br><br>
+    <h3 style="text-align: center; margin-top: 15px;">{{ItemText.questionsanswered}}</h3>
+  </div>
+{% for question in questionsgeneral %}
+<button class="accordion">
+<div style="width:80%;float:right;">   {{ question.question }}</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i></div></button>
+<div class="panel">  <p> {{ question.answer }}</p></div> {% endfor %}</div>{% endif %}
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("Active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+</section>
+
+
+<style media="screen">
+.con {padding-top: 50px;  width: 80%;  float: right;    margin-right:10%;}
+.post img { width: 100%; height: 200px;object-fit: cover;  border-radius: 4px;  margin-bottom: 10px;  }
+.post h2 { font-size: 24px; margin-top: 0;  margin-bottom: 10px;  text-align:center;  }
+.post p {font-size: 16px;  margin-top: 5px;  margin-bottom: 10px;text-align:center;  }
+.post a {    text-decoration: none;  display: block;  padding: 10px 20px;  border: 1px solid #00874c;  border-radius: 4px;  color: #00874c;  text-align: center;  transition: background-color 0.3s, color 0.3s;  }
+/* Post style */
+.post {  width: 24%; float: right; margin-left:1%; border: 1px solid #ccc;margin-bottom: 20px; padding: 10px;  box-sizing: border-box;  }
+/* For screens larger than 768px */
+@media (max-width: 768px) {
+  .post {  width: 100%;  float: right;  }
+  .con {padding-top: 50px;  width:98%;  float: right;  margin-right:1%;}
+
+}
+</style>
+<section style=" width: 100%;  margin-top:50px; float:right;  padding-bottom:20px;"  > <br> <br> <br>
+<h1 style='text-align:center;'> {{BaseTextT.blog}} </h1>
+
+<div  class="con">
+{% if page_obj  %}
+{% for blog_obj in page_obj %}
+<div class="post">
+{% if blog_obj.Image %}
+<img class="card-img rounded-0" src="{{ blog_obj.Image.url }}" alt=""> {% endif %}
+<h2> {{ blog_obj.Titel }}</h2>
+<p>{{ blog_obj.description }}.</p>
+<a href="{% url 'Ecommerce:blogdetails' blog_obj.slug %}" class="genric-btn success-border">  {{MoreText.learn_More}}</a></div>
+{% endfor %}</div>{% else %} <h1 style="text-align:center;">   {{ItemText.Notـavailable }}</h1>{% endif %}
+
+ <br> <br> <br>
+</section>
+ <br> <br> <br>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "BaseGeneric.html" %}
+{% load static %}
+{% block content %}
+
+  <meta name="keywords" content="{{blog_obj.keywords}}">
+<style media="screen">
+.blog_obj{width:90%;  margin-top:50px; margin:auto;}
+
+  @media (max-width: 768px) {
+  .blog_obj{width: 99%;  margin-top:50px; float:right;}
+ }
+
+
+</style>
+   <!-- breadcrumb start-->
+   <!--================Blog Area =================-->
+{% if blog_obj.slideImage %}
+<section class="blog_obj" >
+<img src="{{blog_obj.slideImage.url}}"  class="respon">
+</section>{% endif %}
+{% if blog_obj.slideVideo %}
+<style>  iframe {  width: 100%;  }</style>
+<section style=" width: 100%;  margin-top:15px; float:right; "  >
+<iframe width="420" height="445" src="https://www.youtube.com/embed/{{blog_obj.slideVideo}}">
+</iframe> </section>{% endif %}
+<section style="width: 80%; margin-top: 15px; margin-bottom: 15px; margin:auto;">
+<br><h5>{{blog_obj.created_at}}</h5>
+<br><h5>{{blog_obj.category}}</h5>
+<h1 style="text-align:center;">{{blog_obj.Titel}}</h1>
+{{blog_obj.body|safe}}
+</section>
+   <!--================Blog Area end =================-->
+{% endblock %}

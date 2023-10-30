@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&display=swap" rel="stylesheet">
+ 
+
+
+<html dir="rtl" lang="ar">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@0,500;0,700;2,400&family=Koulen&family=Staatliches&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{%static 'css/card.css' %}">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <!-- <link rel="stylesheet" href=" % static 'css/main.css'  > -->
+
+<style media="screen">
+
+
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Google Font Import - Cairo */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@0,500;0,700;2,400&family=Koulen&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+/*    font-family: 'Poppins', sans-serif;*/
+font-family: 'Cairo', sans-serif;
+
+}
+
+
+
+
+</style>
+ 
+   
+   
+  <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> -->
+  
+<style>
+.float-button {
+        text-decoration: none;
+        position: fixed;
+        padding: 10px;
+        padding-right: 15px;
+        bottom: 30px;
+        right: 30px;
+        color: #fff;
+        background-color:#25D366;
+        border-radius: 25px 30px 5px 25px;
+        z-index: 200;
+        font-family: Arial;
+        font-size: 17px;
+        animation: whatsapp-animation 0.5s ease-in-out;
+        box-shadow: 1px 2px 5px 2px rgba(30,30,30,0.3);
+        transition:all 0.3s ease-out;
+    }
+
+    .float-button:hover {
+         background-color: #128C7E;
+          color: #fff;
+    }
+
+    .fa-whatsapp {
+        font-size: 20px !important;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    @keyframes whatsapp-animation {
+        from {
+            opacity: 0%;
+        }
+
+        to {
+            opacity: 100%
+        }
+    }
+
+    @media screen and (max-width: 545px) {
+        span {
+            display: none;
+        }
+
+        .float-button {
+            bottom: 15px;
+            right: 15px;
+            width: 55px;
+            border-radius: 20px 20px 5px 20px;
+        }
+
+        .fa-whatsapp {
+            font-size: 22px !important;
+            padding: 4px;
+        }
+    }
+</style>
+ 
+  
+ 
+ 
+<a class="float-button" target="_blank" href="https://faq.whatsapp.com/general/chats/how-to-use-click-to-chat/?lang=en">
+  <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    <span> كيف يمكنني مساعدتك؟<span>
+    <!-- <span>أرسل لي رسالة<span> -->
+
+  <!-- <span>Message me<span> -->
+</a>
+  
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
+  background-color: #fff;
+  z-index: 9;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+
+  margin-left: 40%;
+}
+
+.logo a {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+}
+
+.logo a span {
+  color: #8739fa;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.menu a {
+  display: block;
+  padding: 7px 35px;
+  font-size: 17px;
+  font-weight: 500;
+  transition: 0.2s all ease-in-out;
+  color: #000;
+}
+
+.menu:hover a {
+  opacity: 0.4;
+}
+
+.menu a:hover {
+  opacity: 1;
+  color: #000;
+}
+
+.menu-icon {
+  display: none;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+#menu-toggle:checked ~ .menu {
+  transform: scale(1, 1);
+}
+
+@media only screen and (max-width: 950px) {
+
+.menu-toggle-radius {
+ border-radius: 50px;
+padding: 5px  0px 0px 0px   ;
+  border: 1px solid #fff;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+
+  margin-left: 0%;
+}
+
+  .menu {
+    flex-direction: column;
+    background-color:  #fff;
+    align-items: start;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+
+  .menu a {
+    margin-right: 12px;
+
+  }
+
+  .menu li {
+    margin-bottom: 10px;
+  }
+
+  .menu-icon {
+    display: block;
+      color: #000;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0px  5px 0px 5px ;
+}
+</style>
+
+
+
+
+<header class="header">  <nav><div class="logo">
+<a href="{% url 'RealEstate:web' web_slug=web.slug %}">SMART CARD<span>NFC</span></a>  </div>
+  <input type="checkbox" id="menu-toggle">
+  <span  class="menu-toggle-radius">
+  <label for="menu-toggle" class="menu-icon">&#9776;</label></span >
+  <ul class="menu">
+  <li><a href="{% url 'RealEstate:web' web_slug=web.slug %}"> الصفحة الرئيسية</a></li>
+  <li><a href="{% url 'RealEstate:services_sell' web_slug=web.slug %}">  بيع</a></li>
+  <li><a href="{% url 'RealEstate:services_rent' web_slug=web.slug %}">  إيجار</a></li>
+  <li><a href="#"> من نحن</a></li>
+  </ul>  </nav></header>
+
+
+
+
+<style>
+
+.respon {
+  width: 100%;
+    margin: auto;
+  height: auto;
+       flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+     align-content: flex-start;
+
+
+  display: none;
+}
+
+  .respon_MOBIL {
+  width: 100%;
+    margin: auto;
+  height: auto;
+       flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+     align-content: flex-start;
+  display: block;
+
+}
+
+
+/* Media query for screens larger than 768px */
+@media (min-width: 768px) {
+  .respon_MOBIL {
+  display: none;
+}
+
+
+.respon {
+
+ display: block;
+}
+  }
+}
+
+</style>
+<section style="     /* background-color: lightgreen; */
+       width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+     align-content: flex-start;
+     margin: auto;
+     min-height: 30em;
+/*     padding: 3em 1em 1em 1em;*/
+     box-sizing: border-box;" > 
+ 
+  <img src="Boost_your_Google_reviews_with_our_new_solution._1.webp"  class="respon">
+   <img src="pop_card_banner_mobile_1.webp"  class="respon_MOBIL">
+
+
+
+
+<!-- 
+<section>
+
+
+<header style="text-align: center;">
+  <h1 style="font-weight: bold; color: #00000;">Shop By Category
+
+
+
+
+</h1>
+ <br> <br>
+</header> -->
+
+<!-- <video width="320" height="240" controls autoplay>
+  <source src="https://cdn.shopify.com/videos/c/o/v/bdc7ff61d4dc48dfb2ba50804946d0b1.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+</video>
+
+ -->
+<!-- </section> -->
+
+
+
+<section style="width: 80%;margin: auto; ">
+  
+ 
+<style>
+div.gallery {
+  border: 0px solid #ccc;
+}
+
+ 
+
+div.gallery img {
+  width: 100%;
+  border-radius: 15px 15px 0px 0px ;
+  height: auto;
+}
+
+
+div.gallery img :hover{opacity: 0.7;
+
+
+}
+div.desc {
+  padding: 10px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ 
+
+
+.card-div:hover{
+/*       border: 1px solid #ccc;*/
+
+
+ }
+
+
+
+
+
+.responsive {
+ box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  margin-top: 15px;
+   margin: 10px;
+  float: right;
+  width:18%;
+  border-radius: 15px ;
+}
+
+.responsive:hover{box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;}
+
+
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+</style>
+ 
+<h1 style="width:100%;text-align:right;
+    font-size: 36px;
+    color: #1a1a1a;
+    line-height: 27px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 28px;
+margin-right:15px;
+    ">
+تسوق في فئاتنا المختلفة. </h1>
+
+
+
+ 
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.tagthose.com/wp-content/uploads/2021/10/TagThose_NFCTags_Tags_Antimetal_Tags_30mmDia_T2_215_PVC_EasyMark_467MP_900px_v1.0.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+ 
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2020/10/whatsapp-sticker-with-qr-code-truzzer.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2023/01/Google-aufkleber-rund-etikette-eng-s.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2021/04/follow-us-on-tiktok-sticker-qr-code-truzzer-icon.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2023/03/review-us-on-yelp-sticker-with-review-qr-code-color-truzzer.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2023/08/GOOGLE-NFC-REVIEW-CARD-TRUZZER-FRONT-tap.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-truzzer-front-17.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2020/11/whatsapp-business-card-with-qr-code-truzzer.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.truzzer.com/wp-content/uploads/2020/11/whatsapp-business-card-with-qr-code-truzzer-back.jpg" alt="Cinque Terre" width="600" height="400">
+    </a>
+  
+    <h3  style="text-align:center;padding-top: 5px;">Antimetal Plain Tags</h3>
+     <div class="desc"> <span class="count">6</span> products </div>  
+   </div>
+</div>
+
+
+
+
+</section>
+
+
+
+
+ 
+
+
+ 
+
+<section style="width:90%; margin: auto; margin-top: 50px;">
+  
+
+<style>
+
+
+
+body {
+/*    font-family: "Poppins", sans-serif;*/
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+}
+
+
+ .card-container {
+
+     /* background-color: lightgreen; */
+       width: 99%;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     justify-content: center;
+     align-content: flex-start;
+     margin: auto;
+     min-height: 30em;
+     padding: 3em 1em 1em 1em;
+     box-sizing: border-box;
+ }
+
+ 
+
+
+ .card-div{   
+     width: 20em;
+     min-height: 20em;
+     display: flex;
+     flex-direction: column;
+     justify-items: center;
+     align-items: center;
+  
+     margin: 0.6em;
+     box-sizing: border-box;
+     border-radius: 8px;
+     transition: transform 0.2s ease-in-out;
+      border-radius: 8px ;
+ }
+
+
+
+
+
+
+.card-div:hover{
+     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+/*       border: 1px solid #ccc;*/
+
+
+ }
+ 
+.containerImg {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+ }
+
+.containerImg:hover .overlay {
+  opacity: 1;
+}
+
+  
+
+ 
+
+.Container { padding: 0 16px;}
+ 
+
+
+
+
+ 
+/* Media query for screens larger than 576px */
+@media (min-width: 576px) {
+  .Column {
+    width: 50%; /* Set the width to 50% on larger screens */
+  }
+}
+
+/* Media query for screens larger than 768px */
+@media (min-width: 768px) {
+  .Column {
+    width: 33.33%; /* Set the width to 33.33% on larger screens */
+  }
+}
+
+/* Media query for screens larger than 992px */
+@media (min-width: 992px) {
+  .Column {
+    width: 22%; /* Set the width to 25% on larger screens */
+  }
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+    <style>
+
+ .single_product_text {
+    padding-top:10px;
+    padding-bottom:30px;
+ 
+ 
+}
+    .discounted-price {
+         text-decoration: line-through;
+         color: #ccc;
+         margin-top: 5px;
+         padding-right: 15px;
+         font-size: 15px;
+         width:100%;
+         float:right;
+         text-align:right;
+    }
+    .price {
+        margin-top: -18px;
+        padding-right: 15px;
+        font-size: 20px;
+        color: #000;
+        font-weight: bold;
+        width:100%;
+        float:right;
+        text-align:right;; 
+    }
+    .but_shopping{
+      background-color: #fff; /* orange color */
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding:10px 5px 10px 5px;
+      transition: 0.3s;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      color: #ccc;
+
+
+    }
+
+    .but_bay{
+    margin-right: 12px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding:8px 15px 8px 15px;
+    transition: 0.3s;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #000;
+
+    }
+
+    .but_know{
+      background-color: #fff; /* orange color */
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding:8px 15px 8px 15px;
+      transition: 0.3s;
+      font-size: 12px;
+      color: #000;
+      text-align:center;
+
+    }
+    .but_bay:hover{ background-color:#000;color:#fff;}
+    .but_shopping:hover{ background-color:#000;color:#fff;}
+    .but_know:hover{ background-color:#000;color:#fff;border-radius: 10px;}
+
+
+      .Out_stock{
+      position: absolute;
+      width:80px;
+      background:#000;
+      margin-right:33%;
+      border-radius:0px 0px 20px 20px   ;
+      padding:3px;
+      color:#fff;
+      font-size: 10px;
+      text-align: center;
+
+    }
+
+    </style>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+   
+<h1 style="width:100%;text-align:right;
+    font-size: 36px;
+    color: #1a1a1a;
+    line-height: 27px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 28px;">
+الأكثر مبيعاً </h1>
+
+ 
+  <div class="owl-slider">
+<div id="carousel" class="owl-carousel">
+
+
+  <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+  <div class="item" style="margin: 5px;">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+  <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+
+  <div class="item" >
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+    <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+
+    <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+  <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+  <div class="item" style="margin: 5px;">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+  <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+
+  <div class="item" >
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+    <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+
+    <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+  <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+  <div class="item" style="margin: 5px;">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+  <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+
+  <div class="item" >
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+    <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+
+    <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+
+
+    <div class="item">
+<div class="card-div">
+<div class="card">
+<div class="containerImg">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/review-us-on-google-card-icon.jpg" alt="Avatar" class="image">
+<div class="overlay">
+<div class="Out_stock"  > <span style="text-align:center">  نفذت الكمية</span> </div>  
+<img src="https://www.truzzer.com/wp-content/uploads/2021/04/google-review-business-card-icon-with-qr-code-simple-truzzer.jpg" alt="Avatar" class="image">
+</div></div>
+<div class="Container">
+<div class="single_product_text" >
+<h4 style="text-align:center;">EEWDWEDWEDWED</h4>
+<div style="width:80%;float:right;" >
+<p class="discounted-price" >$323</p>
+<p class="price"  >$32323</p>  </div>
+<div style="width:20%;float:right;text-align:center;">
+<button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button> 
+</div> </div><br><div style="width:40%;float:right;text-align:center;">
+<button class="but_bay"  >  اشتري الآن </button> </div>
+<div style="width:60%;float:right;text-align:center;">
+<a href=""> <button class="but_know" > معرفة المزيد</button></a>  </div>  <br><br> <br> </div></div></div>
+     
+   </div>
+ 
+</div>
+</div>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
+<script id="rendered-js">
+jQuery("#carousel").owlCarousel({
+  autoplay: true,
+  rewind: true, /* use rewind if you don't want loop */
+  margin: 20,
+  /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+  responsiveClass: true,
+  autoHeight: true,
+  autoplayTimeout: 1500,
+  smartSpeed: 800,
+  nav: true,
+  rtl: true, // Set rtl option to false for left-to-right direction
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1024: {
+      items: 4
+    },
+    1366: {
+      items: 4
+    }
+  }
+});
+//# sourceURL=pen.js
+</script>
+
+  </section>
+
+ 
+ 
+
+<section  style=" width: 50%;margin: auto;"> 
+
+ 
+
+ 
+<style>
+.qus{
+ width: 80%;
+margin: auto;
+ 
+}
+
+ 
+.accordion {
+  background-color: #fff;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: right;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+ border: 1px solid #eee;
+ margin-top:12px;
+    border-radius: 8px;
+}
+
+.Active,.accordion:hover {
+  background-color: #ebe9e9;
+}
+
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+    text-align: right;
+padding:15px ;
+}
+
+ 
+
+</style> 
+
+ 
+
+
+<div >
+<h3 style="text-align: center; margin-top: 15px;">تمت الإجابة على أسئلتكم 👇</h3>
+
+<button class="accordion">
+<div style="width:80%;float:right;">
+   وصف
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+
+<div class="panel">
+  <p>
+قم بتنمية أعمالك باستخدام بطاقة Google Review NFC الخاصة بنا. تتيح علامة NFC التي يتم تفعيلها عن طريق النقر للعملاء إمكانية ترك تقييمات 5 نجوم لنشاطك التجاري على Google بسرعة وسهولة. بفضل الإعداد السريع وعدم الحاجة إلى تطبيق، يمكنك البدء في جمع التقييمات الإيجابية في دقائق. ابدأ اليوم وشاهد عملك يستفيد من التقييمات الإيجابية!
+
+
+  </p>
+</div>
+
+<button class="accordion">
+<div style="width:80%;float:right;"> معلومات الشحن
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+
+<div class="panel">
+  <p> 
+تتم طباعة الطلبات وشحنها خلال 48 ساعة من طلبك.</p>
+</div>
+
+
+
+<button class="accordion">
+<div style="width:80%;float:right;"> طرح سؤال
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+
+<div class="panel">
+  <p>
+    ببساطة، اطلب منتج TAPiTAG. بمجرد وصول بطاقة العمل الرقمية الخاصة بك، قم بمسح رمز الاستجابة السريعة الموجود على بطاقة العمل الرقمية وقم بإعداد ملف تعريف TAPiTAG الخاص بك في دقائق. بمجرد إعداد ملف التعريف الخاص بك، يمكنك البدء في التواصل مع الأشخاص على الفور.
+</p>
+</div>
+
+<button class="accordion">
+<div style="width:80%;float:right;">واصفات المنتج
+
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+
+<div class="panel">
+  <p>105*70 مللي متر
+
+4.1 بوصة * 2.7 بوصة
+
+واجهة الاتصال: RFID، NFC
+
+التردد: 13.56 ميجا هرتز، 13.56 ميجا هرتز</p>
+</div>
+
+<button class="accordion">
+<div style="width:80%;float:right;">كيف تطلب
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+
+<div class="panel">
+  <p>    
+ابحث عن اسم نشاطك التجاري كما هو مدرج في صفحة أعمال Google الخاصة بك. أضف هذا إلى المربع الأول أعلاه.
+يمكننا العثور على شعارك عبر الإنترنت، ولكن إذا كنت تفضل أن ترسل لنا شعارًا، فانقر فوق الزر وقم بتحميل شعار بتنسيق jpg أو png أو svg.
+ضع طلبك!</p>
+</div>
+
+<button class="accordion">
+<div style="width:80%;float:right;">هل العلامات في المخزون؟
+
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+
+<div class="panel">
+  <p> نعم! نحن ننتج كل علامة حسب الطلب ولدينا مخزون مضمون.
+
+</p>
+</div>
+
+
+<button class="accordion">
+<div style="width:80%;float:right;">كم من الوقت يسغرق طلبي.
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+<div class="panel">
+  <p>   
+يتم إنتاج الطلبات في نفس يوم العمل الذي يتم فيه تقديم الطلب. تستغرق الطلبات ما بين 3-5 أيام عمل للوصول.</p>
+</div>
+
+
+<button class="accordion">
+<div style="width:80%;float:right;">كم هو الشحن؟
+
+</div>
+<div style="width:20%;float:right; text-align: left;">
+<i style='font-size:24px' class='fas'>&#xf0d7;</i>
+</div></button>
+<div class="panel">
+  <p> 
+يبدأ الشحن من 3.49 جنيه إسترليني. التسليم في اليوم التالي متاح بسعر يبدأ من 4.49 جنيه إسترليني. الشحن مجاني للطلبات التي تزيد قيمتها عن 50 جنيهًا إسترلينيًا.</p>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+  
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("Active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+
+
+
+
+
+</section>
+
+
+
+<section style=" width: 80%;margin: auto;">
+ 
+
+ 
+<style>
+footer {
+  background-color: #fff;
+  padding: 20px 0;
+}
+
+.container {
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons .a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #333;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-icons .a:hover {
+  color: #007bff;
+}
+</style>
+
+
+ 
+
+
+<footer>
+  <div class="container">
+    <p><span class="social-icons">
+        <a class="a" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="a" href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a class="a" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      </span></p><br>
+    <p>&copy; 2023 smart card. All rights reserved. 
+    </p>
+  </div>
+</footer>
+</section>
+
+
+ 
+
+   
+
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>

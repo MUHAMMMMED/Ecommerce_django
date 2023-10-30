@@ -1,0 +1,54 @@
+{% extends "BaseGeneric.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+   {% if category.top_slider_web %}
+<section style="slide">
+   <img src="{{category.top_slider_web.url}}"  class="respon">
+  {% endif %}
+  {% if category.top_slider_mobile %}
+    <img src="{{category.top_slider_mobile.url}}"  class="respon_MOBIL">
+ </section>
+ {% endif %}
+<section style="slide">
+<div class="card-container ">
+
+  {% for item in item %}
+  <div class="card-div">
+  <div class="card">
+    <div class="containerImg">
+    {% if item.stock_no <= 0 %}
+    <div class="Out_stock"  > <span style="text-align:center">
+{{MoreText.stockout}}
+      </span> </div>{% endif %}
+    {% if item.side_one %}
+    <img src="{{ item.side_one.url }}" alt="Avatar" class="image">{% endif %}
+    <div class="overlay">
+     {% if item.side_two %}
+    {% if item.stock_no <= 0 %}
+    <div class="Out_stock"  > <span style="text-align:center"> {{MoreText.stockout}}</span> </div>{% endif %}
+    <img src="{{ item.side_two.url }}" alt=" " class="image">
+    {% endif %}</div></div>
+  <div class="Container">
+  <div class="single_product_text" >
+  <h4 style="text-align:center;">{{ item.title }}</h4>
+  <div style="width:80%;float:right;" >
+
+  <p class="price" ><span style="font-size:10px;">  {{BaseTextT.currency}} </span >  <br>{{ item.price }}</p>  </div>
+  <div style="width:20%;float:right;text-align:center;">
+    {% if item.stock_no >= 1 %}
+  <button  class="but_shopping"  data-id="{{item.id }}"> <i class="fa fa-shopping-cart"></i></button>{% endif %}
+  </div> </div><br><div style="width:40%;float:right;text-align:center;">
+    {% if item.stock_no >= 1 %}
+  <button class="but_bay"  data-id="{{item.id }}" >{{MoreText.buy_Now}}</button> {% endif %}</div>
+  <div style="width:60%;float:right;text-align:center;">
+    {% if item.stock_no >= 1 %}
+  <a href="{% url 'Ecommerce:item_detail' item.slug %}"> <button class="but_know" >{{MoreText.learn_More}}</button></a> {% endif %} </div>  <br><br> <br> </div></div></div>
+  {% endfor %}
+
+
+  </div>
+</section>
+
+{% endblock %}

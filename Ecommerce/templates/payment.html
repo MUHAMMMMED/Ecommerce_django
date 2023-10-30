@@ -1,0 +1,21 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+</head>
+<body>
+    <h1>Payment</h1>
+    <form method="POST" action="{% url 'paypal-ipn' %}">
+        <!-- {% csrf_token %}
+        {{ form.as_p }} -->
+        <button type="submit">Pay with PayPal</button>
+    </form>
+</body>
+</html>
+
+<html>
+ <body>
+   {{ form.render }}
+ </body>
+</html>

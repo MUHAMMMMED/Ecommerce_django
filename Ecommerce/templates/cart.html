@@ -1,0 +1,189 @@
+{% extends "BaseGeneric.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+  <!--================Cart Area =================-->
+
+
+  <style media="screen">
+  .Shopping { padding-top:50px;width:100%;float:right;padding-bottom:50px;  }
+  .CARD {width:800px; padding: 10px; margin:auto;}
+  .ITEM {position:relative;width:100%;background: #fff;border: 2px solid #000; margin-top: 15px;
+    border-radius: 10px 0px 0px 10px;
+    float:right;  }
+  .ITEMimg{ hight:100%;float:right; }
+  .part{width:17%;height:60px;float:right;background:#fff;margin-right:2px; padding-top:1px;}
+
+  .close-button:hover {background-color: red;color:#fff;}
+  .Container { display: flex;align-items: right; margin-top:0px;  }
+  .quantity-btn { position: relative;width: 30px;height: 30px;margin-top:0px;  background-color: #000; border-radius:3px;
+     text-align:center; font-size:20px; align-items: right;color: #fff;}
+  .quantity-input {  width: 50px;height: 30px;text-align: center;font-size: 16px;border: 2px solid #000;border-radius: 0px;  }
+  .quantity-btn:hover {  background-color: #e0e0e0;  }
+  .discounted {text-decoration: line-through;color: #000;margin-top:0px; font-size: 13px; width:100%; text-align:left;
+  </style>
+    <style>
+.ITEMimg{  float:right;  }
+.ITEMimage{  width:130px;  }
+.itemdetail{  float:right;  width: 60%;  }
+.ITEMtTitle{ width: 100%;float:right;  height:50px; margin-bottom:2px;  background:#fff;  }
+.ITEMtTitle2{ width: 100%;float:right;  height:80px; margin-bottom:2px;  background:#fff;  }
+.ITEMclose {    width: 30px;    float: left;height: 134px;  margin-top:-1px;  }
+.close-button { position: relative; width:30px; height: 135px; margin-top:0px; border-radius:9px 0px 0px 9px ; text-align:center; background: #000; color: #fff;  border: 1px solid #000;   }
+.ITEMttitle{   margin-top:23px;  float:right;   display: inline-block;  font-size:25px;   color: #000;  font-family: "Montserrat", sans-serif;  font-weight: bold;font-size: 1.25em;   text-align:right;margin-right:5px;  }
+.ITEMInput{  float:right;  width: 50%;    background:#fff;}
+.ITEMInputform{float:left;    margin-top:14px;  }
+.TEMIX{ float:right;    width: 30px;  background:#fff;    }
+.Xtext { margin-top: 14px; width: 100%; display: inline-block; font-size: 30px; color: #777777; font-family: "Montserrat", sans-serif; float: left;  text-align: center;    }
+.ITEMIprice{ float:right; width: 100px; background:#fff;  }
+.ITEMIpricestyel{margin-top: 0px;margin-right: 5px;display: inline-block;     font-size:30px;      color: #000;      font-family: "Montserrat", sans-serif;     font-weight: bold;text-align:center;    }
+.ITEMItotalprice{float:right;width: 100px;  background:#fff;  }
+.ITEMItotalpricestyle{  margin-top: 15px;    display: inline-block; font-size:30px; color: #000; background:#fff; font-family: "Montserrat", sans-serif; font-weight: bold;   float:left  }
+@media only screen and (max-width: 950px) {
+.CARD {width:99%; padding: 10px; margin:auto; }
+.ITEMimg{  float:right;  }
+.ITEMimage{  width:50px;  border-radius:0px 0px 0px 9px ;  }
+.itemdetail{  float:right;  width: 75%;  }
+.ITEMtTitle{ width: 100%;float:right;  height:50px; margin-bottom:2px;  background:none;  }
+.ITEMtTitle2{ width: 100%;float:right;  height:80px; margin-bottom:2px;  background:nonr;  }
+.ITEMclose { width: 30px; float: left;height: 134px;margin-top:-1px;    }
+.close-button { position: relative; width:30px; height: 135px; margin-top:0px; border-radius:9px 0px 0px 9px ; text-align:center; background: #000; color: #fff;    border: 1px solid #000;     }
+ .ITEMttitle{     margin-top:15px; float:right; display: inline-block; font-size:20px; color: #000; font-family: "Montserrat", sans-serif; font-weight: bold; font-size: 1.25em; text-align:right; margin-right:5px;    }
+.ITEMInput{  float:right;  width: 130px;    }
+.ITEMInputform{  float:left;  margin-top:14px;    }
+.TEMIX{  float:right;  width: 30px;   }
+.Xtext { margin-top: 14px; width: 100%; display: inline-block; font-size: 25px; color: #777777; font-family: "Montserrat", sans-serif;    float: left;  text-align: center;  }
+.ITEMIprice{ float:right;  width: 90px;}
+.ITEMIpricestyel{ margin-top: 0px; margin-right: px; display: inline-block; font-size:25px; color: #000; font-family: "Montserrat", sans-serif;font-weight: bold;   text-align:center;  }
+.ITEMItotalprice{ float:right; width: 100%;background:none;  }
+ .ITEMItotalpricestyle{ margin-top: 15px; display: inline-block; font-size:30px; color: #000; background:#fff; font-family: "Montserrat", sans-serif;  font-weight: bold;  margin-left:10px;   float:left;  }
+</style>
+{% if items %}
+<section class="Shopping"><div class="CARD">{% for item in items %}
+<div class="ITEM">
+<div class="ITEMimg">{% if item.item.side_one %}
+<img class="ITEMimage"    src="{{ item.item.side_one.url }}" alt="{{ item.item.title }}">{% endif %}  </div>
+<div class="itemdetail"><div class="ITEMtTitle">
+<p  class="ITEMttitle">{{ item.item.title|slice:"27" }} </p></div>
+<div class="ITEMtTitle2"><div class="ITEMInput">
+<form  class="ITEMInputform" style="width:none; " >
+<div class="Container">
+<button style=" background:none; border:none;"  type="submit">
+<button id="increaseBtn{{ item.item.id }}" class="quantity-btn">+</button>
+<input type="number" id="quantityInput{{ item.item.id }}" value="{{ item.quantity }}" min="0" max="{{ item.item.stock_no }}" class="quantity-input">
+<button id="decreaseBtn{{ item.item.id }}" class="quantity-btn" style="font-size:24px;">-</button>
+</button>  </div></form>  </div>
+<div class="TEMIX">
+<p class="Xtext">X</p></div>
+<div class="ITEMIprice">
+<div class="ITEMIpricestyel">
+<p class=" discounted">  {{ item.beforprice}}<span style="font-size:10px;">  {{BaseTextT.currency}} </span > </p>
+    {{ item.discount_price}}<span style="font-size:10px;">  {{BaseTextT.currency}} </span >
+</div></div>
+<div class="ITEMItotalprice"  >
+<p class="ITEMItotalpricestyle">  {{ item.total_price }}<span style="font-size:10px;">  {{BaseTextT.currency}} </span >   </p>
+</div></div> </div>
+<div class="ITEMclose">
+ <p style=" text-align:left;width:100%; ">
+<a href="{% url 'Ecommerce:deleteitem' item.item.id %}">
+<button type="button" class="close-button"   name="button">X</button></a></p>
+</div></div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript">
+        function updateQuantity(itemId, quantity) {
+          var csrfToken = '{{ csrf_token }}'; // Add this line to retrieve the CSRF token
+          console.log(itemId);
+          console.log(quantity);
+          $.ajax({
+            url: '{% url "Ecommerce:update_quantity" %}', // Use the correct URL for the update_quantity view
+            type: 'POST',
+            headers: { 'X-CSRFToken': csrfToken }, // Add the CSRF token to the request headers
+            data: {
+              itemId: itemId,
+              quantity: quantity,
+            },
+            success: function (response) {
+              console.log(response.message);
+              // Perform any additional actions after successful update
+            },
+            error: function (xhr, status, error) {
+              console.error(error);
+            }
+          });
+        }
+
+
+
+        $(document).ready(function () {
+          $('.quantity-btn').click(function () {
+            var itemId = $(this).attr('id').replace('increaseBtn', '').replace('decreaseBtn', '');
+            var quantityInput = $('#quantityInput' + itemId);
+            var quantity = parseInt(quantityInput.val());
+            var increase = $(this).text() === '+';
+
+            if (increase) {
+              quantity = 'increase';
+            } else {
+              quantity = 'decrease';
+            }
+
+            quantityInput.val(quantity);
+            updateQuantity(itemId, quantity);
+          });
+        });
+
+
+            const increaseBtn{{ item.item.id }} = document.getElementById("increaseBtn{{ item.item.id }}");
+            const decreaseBtn{{ item.item.id }} = document.getElementById("decreaseBtn{{ item.item.id }}");
+            const quantityInput{{ item.item.id }} = document.getElementById("quantityInput{{ item.item.id }}");
+            increaseBtn{{ item.item.id }}.addEventListener("click", () => {
+            quantityInput{{ item.item.id }}.value = parseInt(quantityInput{{ item.item.id }}.value) + 1;
+            });
+
+            decreaseBtn{{ item.item.id }}.addEventListener("click", () => {
+              const currentValue = parseInt(quantityInput{{ item.item.id }}.value);
+              if (currentValue > 0) {
+                quantityInput{{ item.item.id }}.value = currentValue - 1;
+              }
+            });
+          </script>
+{% endfor %}
+<div  style="width:100%; "> <br>
+ <p class="ITEMItotalpricestyle" >  {{InvoiceTextT.total}} {{ overall_total_price }} <span style="font-size:10px;">  {{BaseTextT.currency}} </span >  </p>  </div>
+</div></section>
+<style>
+.inputform{   width: 100%; padding: 12px;   border: 1px solid #000; border-radius: 4px; box-sizing: border-box; margin-top: 6px; margin-bottom: 16px; resize: vertical;  }
+.input[type=submit] { background-color: #04AA6D;   color: white; padding: 12px 20px; border: none; border-radius: 4px;cursor: pointer; }
+.input[type=submit]:hover {    background-color: #45a049;  }
+.container { border-radius: 5px;   padding: 20px;width: 98%;  }
+.Buy{display: inline-block; background-color: #005aff; color: #fff; padding: 8px 20px 8px 20px   ; border-radius: 50px; text-decoration: none;}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+</style>
+<section class="Shopping" style="margin-top:-50px; padding-bottom:150px;">
+<div class="CARD"><div class="contaiNER">
+<h4 style="color:#7a7979; text-align:center;">  {{MoreText.help_Payment}}</h4>
+<form class="row contact_form" method="post" style="float:right; border-radius: 10px;  padding:15px;  margin-bottom:2px;">
+{% csrf_token %}{{ form}}
+<div class="ROW" style=" text-align:center;">  <button  class="Buy" type="submit"> {{MoreText.go_Payment}}</button>
+</div></form><br>  <br>  <br></div></div>
+</section>{% else %}
+<section style="padding-top:200px;">
+<h5 style="text-align:center;">  {{ItemText.Notـavailable}} </h5>
+<h5 style="text-align:center;">    <br><br><br>
+<a href="{% url 'Ecommerce:categories'%}"  >
+<button  class="Buy" type="submit"> {{MoreText.go_Shopping}} </button>
+</a> </h5></section>
+{% endif %}
+<style media="screen"> .BEST{display:none}</style>
+<style media="screen"> .checkout-button {display:none}</style>
+  {% endblock %}

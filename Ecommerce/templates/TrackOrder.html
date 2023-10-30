@@ -1,0 +1,85 @@
+{% extends "BaseGeneric.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+<style>
+         .CONtainer { max-width: 500px; height:100%;border: 1px solid #ccc;margin-top:150px;margin: 0 auto;  background-color: #fff; padding: 20px; border-radius: 4px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  }
+          h1 {  text-align: center;  color: #333;  }
+          .order-form {  margin-top: 20px;  }
+          .form-group {  margin-bottom: 20px;  }
+          .form-group label {display: block;  font-weight: bold;margin-bottom: 5px;  }
+          .form-group input[type="text"] { width: 100%;  padding: 10px;  border: 1px solid #ccc;  border-radius: 4px;  }
+          .form-group button{ background-color: #04AA6D; color: #fff; padding: 10px 20px; border: none; border-radius: 4px;cursor: pointer;  width: 100%;  }
+          .form-group  button:hover {  background-color: #45a049;  }
+          .order-status {  margin-top: 40px;  text-align: center;}
+          .order-status h2 {  color: #333;  margin-bottom: 10px;  }
+          .order-status p {color: #777;  }
+          .order-status { margin-top: 40px; text-align: center;display: flex;  flex-direction: column;align-items: center;}
+          .order-status h2 { color: #333;  margin-bottom: 10px;  }
+          .order-status p {  color: #777;  }
+          .order-status .status-icon { font-size: 48px;  color: #04AA6D;  margin-bottom: 20px;  }
+</style>
+<br><br><br>
+<section class="CONtainer"><h1>  {{TrackTextT.track_help }} </h1><br>
+<form method="POST">{% csrf_token %}<div class="form-group">
+<input type="text" id="order-number" name="order-number" placeholder='{{TrackTextT.order_number }} '>
+</div><div class="form-group" style="margin:auto;">
+ <button  type="submit" >{{TrackTextT.track_but }} </button></div></form>
+ {% if massage %}
+ <div class="order-status"><h2>  {{TrackTextT.order_status }}</h2>
+{% if massage  %}
+
+
+<i class="fas fa-exclamation-circle status-icon"></i>
+{% endif %} <p>{{ItemText.Notـavailable }}</p> </div> {% endif %}
+{% if order.Orderـstatus == 'waiting' %}
+<div class="order-status"><h2>{{TrackTextT.order_status }}</h2>
+<i class="fas fa-hourglass-start status-icon"></i><p>{{TrackTextT.waiting }}</p></div>
+
+{% elif order.Orderـstatus == 'Orderprocessing' %}
+<div class="order-status"><h2>{{TrackTextT.order_status }}</h2>
+<i class="fas fa-cogs status-icon"></i><p>{{TrackTextT.processing }}</p></div>
+{% elif order.Orderـstatus == 'Shipping' %}
+<div class="order-status"><h2>{{TrackTextT.order_status }}</h2>
+<i class="fas fa-truck status-icon"></i><p>{{TrackTextT.shipped }} </p>
+{% if order.anticipation %}
+<h1>{{TrackTextT.arrival_day }} </h1>
+{% if order.anticipation == 'sat' %}
+<h1 style=" color:green;">{{TrackTextT.Saturday}} </h1>
+   {% elif order.anticipation == 'sun' %}
+   <h1 style=" color:green;"> {{TrackTextT.Saturday}} </h1>
+   {% elif order.anticipation == 'mon' %}
+   <h1 style=" color:green;">{{TrackTextT.Monday}} </h1>
+   {% elif order.anticipation == 'tue' %}
+   <h1 style=" color:green;">{{TrackTextT.Tuesday}} </h1>
+   {% elif order.anticipation == 'wed' %}
+   <h1 style=" color:green;"> {{TrackTextT.Wednesday}}</h1>
+   {% elif order.anticipation == 'thu' %}
+   <h1 style=" color:green;">{{TrackTextT.Thursday}}</h1>
+   {% elif order.anticipation == 'fri' %}
+   <h1 style=" color:green;">{{TrackTextT.Friday}}</h1>
+   {% endif %}
+    {% endif %}
+
+
+</div>
+{% elif order.Orderـstatus == 'Orderdone' %}
+<div class="order-status"><h2>{{TrackTextT.order_status }}</h2>
+<i class="fas fa-check-circle status-icon"></i>
+<p>{{TrackTextT.Order_delivered}} </p></div>
+{% elif order.Orderـstatus == 'cancel' %}
+<div class="order-status"><h2>{{TrackTextT.order_status }}</h2>
+<i class="fas fa-times-circle status-icon"></i>
+<p>{{TrackTextT.cancelled}} </p></div>{% endif %}
+
+
+
+</section>
+<style media="screen">
+.Buy{display:none;}
+.BEST{display:none}
+.checkout-button {display:none}
+</style>
+
+    {% endblock %}
